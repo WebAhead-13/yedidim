@@ -1,11 +1,16 @@
-import { Button } from "react-native-paper"
-import { View, Text } from "react-native"
-import { AuthParamList } from "../types"
-import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import { Button } from "react-native-paper";
+import { View, Text, ColorSchemeName } from "react-native";
+import { AuthParamList } from "../types";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { MaterialIcons } from "@expo/vector-icons";
+import Colors from "../constants/Colors";
+import useColorScheme from "../hooks/useColorScheme";
 
-const Stack = createNativeStackNavigator<AuthParamList>()
+const Stack = createNativeStackNavigator<AuthParamList>();
 
 function AuthStack() {
+  const colorScheme = useColorScheme();
+
   return (
     <Stack.Navigator
       screenOptions={{
@@ -19,7 +24,7 @@ function AuthStack() {
             <Text>Login</Text>
             <Button
               onPress={() => {
-                navigation.navigate("Verify")
+                navigation.navigate("Verify");
               }}
             >
               Send
@@ -29,12 +34,30 @@ function AuthStack() {
       />
       <Stack.Screen
         name="Verify"
+        options={({ navigation, route }) => ({
+          headerRight: () => {
+            return (
+              <Button
+                onPress={() => {
+                  navigation.goBack();
+                }}
+              >
+                <MaterialIcons
+                  name="arrow-back"
+                  color={Colors[colorScheme].tint}
+                  size={30}
+                />
+              </Button>
+            );
+          },
+          headerLeft: null,
+        })}
         component={({ navigation }) => (
           <View>
             <Text>Verify</Text>
             <Button
               onPress={() => {
-                navigation.navigate("Login")
+                navigation.navigate("Login");
               }}
             >
               Send
@@ -43,7 +66,7 @@ function AuthStack() {
         )}
       />
     </Stack.Navigator>
-  )
+  );
 }
 
-export default AuthStack
+export default AuthStack;
