@@ -11,6 +11,8 @@ export default function EventsPage() {
         style={{
           flex: 1,
           flexDirection: "row",
+          // flexWrap: "wrap",
+          maxHeight: 140,
         }}
       >
         <View
@@ -82,9 +84,7 @@ export default function EventsPage() {
             style={{
               height: 32,
               width: 32,
-              // left: 12,
               top: 22,
-              // backgroundColor: "#B9D15F",
               paddingBottom: 20,
             }}
             resizeMode="cover"
@@ -94,10 +94,8 @@ export default function EventsPage() {
               direction: "rtl",
               marginTop: 29,
               marginLeft: "inherit",
-              // width: 80,
               height: 28,
               fontSize: 36,
-              // alignSelf: "center",
               color: "white",
             }}
           >
@@ -118,30 +116,184 @@ export default function EventsPage() {
           </Text>
         </View>
       </View>
-      <View>
+      <View style={{ display: "flex", flexDirection: "row", marginTop: 10 }}>
         <View
           style={{
             height: 140,
             width: 80,
-            left: 284,
-            top: 345,
             borderRadius: 6,
             shadowOffset: { width: 0, height: 1 },
             shadowColor: "rgba(0, 0, 0, 0.075)",
+            shadowRadius: 8,
           }}
         >
           <Image
             source={require("../assets/images/cables7.svg")}
             style={{
-              height: 24,
-              width: 24,
+              height: 40,
+              width: 40,
+              alignSelf: "center",
+              marginTop: 15,
             }}
-            resizeMode="cover"
           ></Image>
+          <Text
+            style={{
+              direction: "rtl",
+              marginLeft: "inherit",
+              height: 28,
+              fontSize: 30,
+              textAlign: "center",
+              marginTop: 10,
+            }}
+          >
+            33
+          </Text>
+          <Text
+            style={{
+              direction: "rtl",
+              marginLeft: "inherit",
+              height: 28,
+              fontSize: 18,
+              textAlign: "center",
+              marginTop: 8,
+              color: "rgba(0, 0, 0, 0.54)",
+            }}
+          >
+            הנעה
+          </Text>
         </View>
-        <View></View>
-        <View></View>
-        <View></View>
+        <View
+          style={{
+            height: 140,
+            width: 80,
+            borderRadius: 6,
+            shadowOffset: { width: 0, height: 1 },
+            shadowColor: "rgba(0, 0, 0, 0.075)",
+            shadowRadius: 8,
+            marginLeft: 10,
+          }}
+        >
+          <Image
+            source={require("../assets/images/flatTire4.svg")}
+            style={{
+              height: 40,
+              width: 40,
+              alignSelf: "center",
+              marginTop: 15,
+            }}
+          ></Image>
+          <Text
+            style={{
+              direction: "rtl",
+              height: 28,
+              fontSize: 30,
+              textAlign: "center",
+              marginTop: 10,
+            }}
+          >
+            4
+          </Text>
+          <Text
+            style={{
+              direction: "rtl",
+              height: 28,
+              fontSize: 18,
+              textAlign: "center",
+              marginTop: 8,
+              color: "rgba(0, 0, 0, 0.54)",
+            }}
+          >
+            פנצ׳ר
+          </Text>
+        </View>
+        <View
+          style={{
+            height: 140,
+            width: 80,
+            borderRadius: 6,
+            shadowOffset: { width: 0, height: 1 },
+            shadowColor: "rgba(0, 0, 0, 0.075)",
+            shadowRadius: 8,
+            marginLeft: 10,
+          }}
+        >
+          <Image
+            source={require("../assets/images/oil.svg")}
+            style={{
+              height: 40,
+              width: 40,
+              alignSelf: "center",
+              marginTop: 15,
+            }}
+          ></Image>
+          <Text
+            style={{
+              direction: "rtl",
+              height: 28,
+              fontSize: 30,
+              textAlign: "center",
+              marginTop: 10,
+            }}
+          >
+            2
+          </Text>
+          <Text
+            style={{
+              direction: "rtl",
+              height: 28,
+              fontSize: 17,
+              textAlign: "center",
+              marginTop: 8,
+              color: "rgba(0, 0, 0, 0.54)",
+            }}
+          >
+            שמן-דלק מים
+          </Text>
+        </View>
+        <View
+          style={{
+            height: 140,
+            width: 80,
+            borderRadius: 6,
+            shadowOffset: { width: 0, height: 1 },
+            shadowColor: "rgba(0, 0, 0, 0.075)",
+            shadowRadius: 8,
+            marginLeft: 10,
+          }}
+        >
+          <Image
+            source={require("../assets/images/other.svg")}
+            style={{
+              height: 40,
+              width: 40,
+              alignSelf: "center",
+              marginTop: 15,
+            }}
+          ></Image>
+          <Text
+            style={{
+              direction: "rtl",
+              height: 28,
+              fontSize: 30,
+              textAlign: "center",
+              marginTop: 10,
+            }}
+          >
+            1
+          </Text>
+          <Text
+            style={{
+              direction: "rtl",
+              height: 28,
+              fontSize: 17,
+              textAlign: "center",
+              marginTop: 8,
+              color: "rgba(0, 0, 0, 0.54)",
+            }}
+          >
+            אחר
+          </Text>
+        </View>
       </View>
     </View>
   );
@@ -150,7 +302,7 @@ export default function EventsPage() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 152,
+    paddingTop: 80,
     paddingStart: 10,
   },
   title: {
