@@ -7,13 +7,13 @@ import { Text, View } from "../components/Themed";
 
 export default function ProfileScreen() {
   const Accordion = [
-    { title: "התראות + כתובות", childs: [{ name: "Mario's Batata" }] },
-    { title: "מדריך למתנדבים", childs: [{ name: "Mario's kaman Batata" }] },
-    { title: "שיתוף אפלקציה", childs: [{ name: "Mario's kaman mara Batata" }] },
-    { title: "אודות סטארטאח", childs: [{ name: "Mario's Batata's Batata" }] },
+    { title: "התראות + כתובות", childs: [{ name: "child1" }] },
+    { title: "מדריך למתנדבים", childs: [{ name: "child1" }] },
+    { title: "שיתוף אפלקציה", childs: [{ name: "child1" }] },
+    { title: "אודות סטארטאח", childs: [{ name: "child1" }] },
     {
       title: "שיתוף אפליקציה",
-      childs: [{ name: "Mario's Batata's Batata's Batata" }],
+      childs: [{ name: "child1" }],
     },
   ];
   return (
