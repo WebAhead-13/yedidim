@@ -17,18 +17,18 @@ export const MyModal = () => {
           onDismiss={hideModal}
           contentContainerStyle={styles.contentContainerStyle}
         >
-          <Text style={styles.text1}>סיום אירוע</Text>
+          <Text style={styles.mainTitle}>סיום אירוע</Text>
           <Image
-            style={{ width: "20%", height: "20%", alignSelf: "center" }}
+            style={styles.image}
             resizeMode="contain"
             source={require("../assets/images/Vector.png")}
           />
 
-          <Text style={styles.text24}>איזה כיף!</Text>
-          <Text style={styles.text3}>
+          <Text style={styles.subTitleOne}>איזה כיף!</Text>
+          <Text style={styles.subTitleTwo}>
             גרמת לאדם אחד לחייך והעולם מתמלא בשמחה.
           </Text>
-          <Text style={styles.text24}>תודה!</Text>
+          <Text style={styles.subTitleOne}>תודה!</Text>
         </Modal>
       </Portal>
       <Button style={{ marginTop: 30 }} onPress={showModal}>
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     padding: 16,
   },
-  text1: {
+  mainTitle: {
     fontSize: 24,
     lineHeight: 20,
     alignItems: "center",
@@ -57,7 +57,12 @@ const styles = StyleSheet.create({
     color: "#000000",
     marginBottom: 30,
   },
-  text24: {
+  image: {
+    width: "20%",
+    height: "20%",
+    alignSelf: "center",
+  },
+  subTitleOne: {
     fontSize: 20,
     lineHeight: 20,
     alignItems: "center",
@@ -67,7 +72,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontWeight: "bold",
   },
-  text3: {
+  subTitleTwo: {
     fontSize: 15,
     lineHeight: 20,
     alignItems: "center",

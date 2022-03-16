@@ -1,9 +1,8 @@
 import * as React from "react";
-import { StyleSheet, Image } from "react-native";
+import { StyleSheet, Image, ScrollView } from "react-native";
 import { List, Button } from "react-native-paper";
-import { Modal, Portal } from "react-native-paper";
 
-// import EditScreenInfo from "../components/EditScreenInfo";
+import Fonts from "../constants/Fonts";
 import { Text, View } from "../components/Themed";
 
 export default function ProfileScreen({ navigation }: any) {
@@ -17,71 +16,66 @@ export default function ProfileScreen({ navigation }: any) {
       childs: [{ name: "child1" }],
     },
   ];
-  const [visible, setVisible] = React.useState(false);
-  const showModal = () => setVisible(true);
-  const hideModal = () => setVisible(false);
-  // const containerStyle = { backgroundColor: "white", padding: 20 };
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <View style={styles.userInfo}>
-          <View style={styles.userPhoto}>
+      <ScrollView>
+        <View style={styles.header}>
+          <View style={styles.userInfo}>
+            <View style={styles.userPhoto}>
+              <Image
+                style={{ width: "100%", height: "100%" }}
+                resizeMode="contain"
+                source={require("../assets/images/userPhoto.svg")}
+              />
+            </View>
+            <View>
+              <Text style={styles.title}>ישראל הררי</Text>
+              <Text style={styles.title}>050-80472847</Text>
+            </View>
+          </View>
+          <View style={styles.imageContainer}>
             <Image
               style={{ width: "100%", height: "100%" }}
               resizeMode="contain"
-              source={require("../assets/images/userPhoto.svg")}
+              source={require("../assets/images/YedidimLogo.jpg")}
             />
           </View>
+        </View>
+        <View style={styles.settingsContainer}>
           <View>
-            <Text style={styles.title}>שם משתמש</Text>
-            <Text style={styles.title}>מספר נייד</Text>
+            <Text style={styles.settings}>הגדרות חשבון</Text>
           </View>
-        </View>
-        <View style={styles.imageContainer}>
-          <Image
-            style={{ width: "100%", height: "100%" }}
-            resizeMode="contain"
-            source={require("../assets/images/YedidimLogo.jpg")}
-          />
-        </View>
-      </View>
-      <View style={styles.settingsContainer}>
-        <View>
-          <Text style={styles.settings}>הגדרות חשבון</Text>
-        </View>
-        <View>
-          <List.Section>
-            {Accordion.map((element) => {
-              return (
-                <List.Accordion
-                  titleStyle={styles.titleStyle}
-                  style={styles.listAccordion}
-                  title={element.title}
-                >
-                  {element.childs.map((child) => {
-                    return <List.Item key={child.name} title={child.name} />;
-                  })}
-                </List.Accordion>
-              );
-            })}
-          </List.Section>
-        </View>
-        <View style={{ width: 90 }}>
-          <Button
-            labelStyle={styles.button}
-            style={styles.buttonStyle}
-            onPress={() => console.log("Pressed")}
-          >
-            התנתק
-          </Button>
-        </View>
-        <View>
-          <View style={styles.version}>
-            <Text style={styles.version1}>גרסה 15.0.136</Text>
-            <View>
+          <View>
+            <List.Section>
+              {Accordion.map((element) => {
+                return (
+                  <List.Accordion
+                    titleStyle={styles.titleStyle}
+                    style={styles.listAccordion}
+                    title={element.title}
+                  >
+                    {element.childs.map((child) => {
+                      return <List.Item key={child.name} title={child.name} />;
+                    })}
+                  </List.Accordion>
+                );
+              })}
+            </List.Section>
+          </View>
+          <View style={{ width: 90 }}>
+            <Button
+              labelStyle={styles.button}
+              onPress={() => console.log("Pressed")}
+            >
+              התנתק
+            </Button>
+          </View>
+          <View>
+            <View style={styles.versionContainer}>
+              <Text style={styles.versionNumber}>גרסה 15.0.136</Text>
               <Text
-                style={styles.version2}
+                style={styles.versionListButton}
                 onPress={() => navigation.navigate("Modal")}
               >
                 רשימת עדכונים
@@ -89,44 +83,37 @@ export default function ProfileScreen({ navigation }: any) {
             </View>
           </View>
         </View>
-      </View>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
+      </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   settingsContainer: {
-    marginTop: 50,
+    paddingTop: 50,
   },
   titleStyle: {
-    fontFamily: "Assistant",
     fontSize: 18,
     color: "#455A64",
-    display: "flex",
     letterSpacing: 0.5,
   },
   listAccordion: {
     backgroundColor: "white",
   },
   container: {
-    // flex: 1,
+    height: "100%",
   },
   header: {
     flexDirection: "row",
-    marginTop: 30,
+    paddingTop: 30,
     justifyContent: "space-evenly",
   },
   userInfo: {
     display: "flex",
     flexDirection: "row",
+    alignContent: "center",
     width: 226,
     height: 56,
-    alignContent: "center",
   },
   userPhoto: {
     width: 50,
@@ -138,52 +125,35 @@ const styles = StyleSheet.create({
     height: 70,
   },
   title: {
-    fontWeight: "bold",
-    position: "relative",
-    width: 154,
-    height: 14,
-    left: 0,
-    top: 10,
-    fontFamily: "Assistant",
+    fontFamily: Fonts.medium,
     fontSize: 18,
-  },
-  list: {
-    backgroundColor: "white",
+    textAlign: "left",
   },
   settings: {
     marginLeft: 18,
-    fontFamily: "Assistant",
     fontWeight: "600",
     fontSize: 18,
     display: "flex",
     color: "#455A64",
   },
   button: {
-    fontFamily: "Assistant",
     fontSize: 18,
     color: "#455A64",
+    fontFamily: Fonts.regular,
   },
-  buttonStyle: {
-    minWidth: 100,
-  },
-  version: {
+  versionContainer: {
     display: "flex",
     flexDirection: "row",
     fontWeight: "600",
     fontSize: 13,
     marginTop: 50,
   },
-  version1: {
+  versionNumber: {
     marginRight: 10,
     marginLeft: 18,
   },
-  version2: {
+  versionListButton: {
     color: "#336CA0",
     fontSize: 13,
-  },
-
-  separator: {
-    marginVertical: 30,
-    height: 1,
   },
 });

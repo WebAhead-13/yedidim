@@ -13,11 +13,6 @@ import { RootTabParamList, RootTabScreenProps } from "../types";
 import { FontAwesome } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
 
-const RecentsRoute = ({ navigation }: any) => (
-  <Button onPress={() => navigation.navigate("TabOneScreen")}>Recents</Button>
-);
-
-const TestRoute = () => <Text>TestRoute</Text>;
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function TabBarIcon(props: {
@@ -32,7 +27,7 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabFour"
+      initialRouteName="ProfileScreen"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}
@@ -77,7 +72,7 @@ function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="TabFour"
+        name="ProfileScreen"
         component={ProfileScreen}
         options={{
           title: "פרופיל",
