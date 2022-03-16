@@ -2,18 +2,18 @@ import * as React from "react";
 import { StyleSheet, Image } from "react-native";
 import { List, Button } from "react-native-paper";
 
-import EditScreenInfo from "../components/EditScreenInfo";
+// import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
 
 export default function ProfileScreen() {
   const Accordion = [
-    { title: "התראות + כתובות", childs: [{ name: "Mario's Batata" }] },
-    { title: "מדריך למתנדבים", childs: [{ name: "Mario's kaman Batata" }] },
-    { title: "שיתוף אפלקציה", childs: [{ name: "Mario's kaman mara Batata" }] },
-    { title: "אודות סטארטאח", childs: [{ name: "Mario's Batata's Batata" }] },
+    { title: "התראות + כתובות", childs: [{ name: "child1" }] },
+    { title: "מדריך למתנדבים", childs: [{ name: "child1" }] },
+    { title: "שיתוף אפלקציה", childs: [{ name: "child1" }] },
+    { title: "אודות סטארטאח", childs: [{ name: "child1" }] },
     {
       title: "שיתוף אפליקציה",
-      childs: [{ name: "Mario's Batata's Batata's Batata" }],
+      childs: [{ name: "child1" }],
     },
   ];
   return (
@@ -49,23 +49,12 @@ export default function ProfileScreen() {
             {Accordion.map((element) => {
               return (
                 <List.Accordion
-                  titleStyle={{
-                    fontFamily: "Assistant",
-                    fontStyle: "normal",
-                    fontWeight: "300",
-                    fontSize: 18,
-                    lineHeight: 20,
-                    color: "#455A64",
-                    display: "flex",
-                    alignItems: "center",
-                    textAlign: "right",
-                    letterSpacing: 0.5,
-                  }}
-                  style={{ backgroundColor: "white" }}
+                  titleStyle={styles.titleStyle}
+                  style={styles.listAccordion}
                   title={element.title}
                 >
                   {element.childs.map((child) => {
-                    return <List.Item title={child.name} />;
+                    return <List.Item key={child.name} title={child.name} />;
                   })}
                 </List.Accordion>
               );
@@ -75,7 +64,7 @@ export default function ProfileScreen() {
         <View style={{ width: 90 }}>
           <Button
             labelStyle={styles.button}
-            style={{ minWidth: 90, justifyContent: "flex-start" }}
+            style={styles.buttonStyle}
             onPress={() => console.log("Pressed")}
           >
             התנתק
@@ -83,11 +72,9 @@ export default function ProfileScreen() {
         </View>
         <View>
           <View style={styles.version}>
-            <Text style={{ marginRight: 10, marginLeft: 18 }}>
-              גרסה 15.0.136
-            </Text>
+            <Text style={styles.version1}>גרסה 15.0.136</Text>
             <Text
-              style={{ color: "#336CA0", fontSize: 13 }}
+              style={styles.version2}
               onPress={() => console.log("Pressed")}
             >
               רשימת עדכונים
@@ -108,16 +95,21 @@ const styles = StyleSheet.create({
   settingsContainer: {
     marginTop: 50,
   },
+  titleStyle: {
+    fontFamily: "Assistant",
+    fontSize: 18,
+    color: "#455A64",
+    display: "flex",
+    letterSpacing: 0.5,
+  },
+  listAccordion: {
+    backgroundColor: "white",
+  },
   container: {
     // flex: 1,
-    // alignItems: "center",
-    // justifyContent: "center",
   },
   header: {
-    display: "flex",
     flexDirection: "row",
-    width: "100%",
-    alignItems: "center",
     marginTop: 30,
     justifyContent: "space-evenly",
   },
@@ -145,67 +137,45 @@ const styles = StyleSheet.create({
     left: 0,
     top: 10,
     fontFamily: "Assistant",
-    fontStyle: "normal",
-    fontWeights: 600,
     fontSize: 18,
-    lineHeight: 19,
-    display: "flex",
-    alignItems: "center",
-    textAlign: "right",
-    color: "#455A64",
-    marginBottom: 10,
   },
   list: {
     backgroundColor: "white",
   },
   settings: {
-    width: 154,
-    height: 14,
     marginLeft: 18,
     fontFamily: "Assistant",
-    fontStyle: "normal",
     fontWeight: "600",
     fontSize: 18,
-    lineHeight: 19,
     display: "flex",
-    alignItems: "center",
-    textAlign: "right",
     color: "#455A64",
   },
   button: {
-    display: "flex",
-    flexDirection: "row",
-    alignSelf: "flex-start",
     fontFamily: "Assistant",
-    fontStyle: "normal",
-    fontWeight: "300",
     fontSize: 18,
-    lineHeight: 20,
     color: "#455A64",
-    // alignItems: "center",
-
-    letterSpacing: 0.5,
+  },
+  buttonStyle: {
+    minWidth: 100,
   },
   version: {
     display: "flex",
-    alignSelf: "flex-start",
     flexDirection: "row",
-    justifyContent: "flex-start",
-    culumnGap: 0,
-    fontFamily: "Assistant",
-    fontStyle: "normal",
-    fontWeight: 600,
+    fontWeight: "600",
     fontSize: 13,
-    lineHeight: 20,
-    alignItems: "flex-start",
-    textAlign: "right",
-    letterSpacing: 0.1,
-    color: "#336CA0",
     marginTop: 50,
   },
+  version1: {
+    marginRight: 10,
+    marginLeft: 18,
+  },
+  version2: {
+    color: "#336CA0",
+    fontSize: 13,
+  },
+
   separator: {
     marginVertical: 30,
     height: 1,
-    width: "80%",
   },
 });
