@@ -1,10 +1,11 @@
 import * as React from "react";
 import { StyleSheet, Image, ScrollView } from "react-native";
 import { List, Button } from "react-native-paper";
+
 import Fonts from "../constants/Fonts";
 import { Text, View } from "../components/Themed";
 
-export default function ProfileScreen() {
+export default function ProfileScreen({ navigation }: any) {
   const Accordion = [
     { title: "התראות + כתובות", childs: [{ name: "child1" }] },
     { title: "מדריך למתנדבים", childs: [{ name: "child1" }] },
@@ -15,6 +16,7 @@ export default function ProfileScreen() {
       childs: [{ name: "child1" }],
     },
   ];
+
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -74,7 +76,7 @@ export default function ProfileScreen() {
               <Text style={styles.versionNumber}>גרסה 15.0.136</Text>
               <Text
                 style={styles.versionListButton}
-                onPress={() => console.log("Pressed")}
+                onPress={() => navigation.navigate("Modal")}
               >
                 רשימת עדכונים
               </Text>
