@@ -4,7 +4,7 @@ import { Text, Pressable } from "react-native";
 import TabOneScreen from "../screens/TabOneScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
 import TabThreeScreen from "../screens/TabThreeScreen";
-import TabFourScreen from "../screens/TabFourScreen";
+import ProfileScreen from "../screens/ProfileScreen";
 import useColorScheme from "../hooks/useColorScheme";
 
 import * as React from "react";
@@ -32,7 +32,7 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="TabFour"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}
@@ -78,9 +78,9 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="TabFour"
-        component={TabFourScreen}
+        component={ProfileScreen}
         options={{
-          title: "Tab Four",
+          title: "פרופיל",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
