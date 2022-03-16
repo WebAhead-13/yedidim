@@ -6,7 +6,8 @@ import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
 import { useEffect } from "react";
-import { Provider as PaperProvider } from "react-native-paper";
+import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
+import Colors from "./constants/Colors";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -16,12 +17,21 @@ export default function App() {
     I18nManager.forceRTL(true);
   }, []);
 
+  const theme = {
+    ...DefaultTheme,
+    roundness: 2,
+    colors: {
+      ...DefaultTheme.colors,
+      ...Colors.light,
+    },
+  };
+
   if (!isLoadingComplete) {
     return null;
   } else {
     return (
       <SafeAreaProvider>
-        <PaperProvider>
+        <PaperProvider theme={theme}>
           <Navigation />
           <StatusBar />
         </PaperProvider>
