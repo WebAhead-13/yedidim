@@ -1,11 +1,12 @@
 import * as React from "react";
 import { StyleSheet, Image } from "react-native";
 import { List, Button } from "react-native-paper";
+import { Modal, Portal } from "react-native-paper";
 
 // import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
 
-export default function ProfileScreen() {
+export default function ProfileScreen({ navigation }: any) {
   const Accordion = [
     { title: "התראות + כתובות", childs: [{ name: "child1" }] },
     { title: "מדריך למתנדבים", childs: [{ name: "child1" }] },
@@ -16,6 +17,11 @@ export default function ProfileScreen() {
       childs: [{ name: "child1" }],
     },
   ];
+  const [visible, setVisible] = React.useState(false);
+  const showModal = () => setVisible(true);
+  const hideModal = () => setVisible(false);
+  // const containerStyle = { backgroundColor: "white", padding: 20 };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -73,12 +79,14 @@ export default function ProfileScreen() {
         <View>
           <View style={styles.version}>
             <Text style={styles.version1}>גרסה 15.0.136</Text>
-            <Text
-              style={styles.version2}
-              onPress={() => console.log("Pressed")}
-            >
-              רשימת עדכונים
-            </Text>
+            <View>
+              <Text
+                style={styles.version2}
+                onPress={() => navigation.navigate("Modal")}
+              >
+                רשימת עדכונים
+              </Text>
+            </View>
           </View>
         </View>
       </View>
