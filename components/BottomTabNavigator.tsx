@@ -27,7 +27,7 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="ProfileScreen"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}
