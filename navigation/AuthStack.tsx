@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { MaterialIcons } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
-
+import Login from "../screens/Login";
 const Stack = createNativeStackNavigator<AuthParamList>();
 
 function AuthStack() {
@@ -20,16 +20,19 @@ function AuthStack() {
       <Stack.Screen
         name="Login"
         component={({ navigation }) => (
-          <View>
-            <Text>Login</Text>
-            <Button
-              onPress={() => {
-                navigation.navigate("Verify");
-              }}
-            >
-              Send
-            </Button>
-          </View>
+          <Login/>
+
+      
+          // <View>
+          //   <Text>Login</Text>
+          //   <Button
+          //     onPress={() => {
+          //       navigation.navigate("Verify");
+          //     }}
+          //   >
+          //     Send
+          //   </Button>
+          // </View>
         )}
       />
       <Stack.Screen
