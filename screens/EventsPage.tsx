@@ -1,5 +1,5 @@
 import { StyleSheet, Image } from "react-native";
-
+import { Dimensions } from "react-native";
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
 
@@ -7,292 +7,58 @@ export default function EventsPage() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>שם משתמש</Text>
-      <View
-        style={{
-          flex: 1,
-          flexDirection: "row",
-          flexWrap: "wrap",
-          maxHeight: 140,
-        }}
-      >
-        <View
-          style={{
-            backgroundColor: "#2798D5",
-            width: 240,
-            height: 140,
-            borderRadius: 6,
-            shadowOffset: { width: 0, height: 1 },
-            shadowColor: "rgba(0, 0, 0, 0.075)",
-            shadowRadius: 8,
-          }}
-        >
+      <View style={styles.events}>
+        <View style={styles.allevents}>
           <Image
             source={require("../assets/images/myEvents2.svg")}
-            style={{
-              height: 62,
-              width: 48,
-              left: 12,
-              top: 22,
-              backgroundColor: "#2798D5",
-            }}
+            style={styles.alleventsimage}
             resizeMode="cover"
           />
-
-          <Text
-            style={{
-              fontSize: 29,
-              lineHeight: 24,
-              height: 28,
-              width: 70,
-              marginLeft: 15,
-              marginTop: 25,
-              direction: "rtl",
-              alignContent: "flex-start",
-              color: "white",
-            }}
-          >
-            226
-          </Text>
-
-          <Text
-            style={{
-              fontSize: 22,
-              lineHeight: 24,
-              height: 28,
-              width: 150,
-              marginLeft: 15,
-              marginTop: 1,
-              direction: "rtl",
-              color: "white",
-            }}
-          >
-            סה״כ אירועים
-          </Text>
+          <Text style={styles.alleventsnum}>226</Text>
+          <Text style={styles.alleventstext}>סה״כ אירועים</Text>
         </View>
-        <View
-          style={{
-            borderRadius: 6,
-            width: 100,
-            height: 140,
-            left: 11,
-            backgroundColor: "#B9D15F",
-            alignItems: "center",
-          }}
-        >
+        <View style={styles.monthlyevents}>
           <Image
             source={require("../assets/images/dateRange.svg")}
-            style={{
-              height: 32,
-              width: 32,
-              top: 22,
-              paddingBottom: 20,
-            }}
+            style={styles.monthlyeventsimage}
             resizeMode="cover"
           ></Image>
-          <Text
-            style={{
-              direction: "rtl",
-              marginTop: 29,
-              marginLeft: "inherit",
-              height: 28,
-              fontSize: 36,
-              color: "white",
-            }}
-          >
-            38
-          </Text>
-          <Text
-            style={{
-              marginTop: 8,
-              fontSize: 17,
-              direction: "rtl",
-              height: 20,
-              width: 60,
-              textAlign: "center",
-              color: "white",
-            }}
-          >
-            אירועים החודש
-          </Text>
+          <Text style={styles.monthlyeventsnum}>38</Text>
+          <Text style={styles.monthlyeventstext}>אירועים החודש</Text>
         </View>
       </View>
-      <View style={{ display: "flex", flexDirection: "row", marginTop: 10 }}>
-        <View
-          style={{
-            height: 140,
-            width: 80,
-            borderRadius: 6,
-            shadowOffset: { width: 0, height: 1 },
-            shadowColor: "rgba(0, 0, 0, 0.075)",
-            shadowRadius: 8,
-          }}
-        >
+      <View style={styles.events2}>
+        <View style={styles.event}>
           <Image
             source={require("../assets/images/cables7.svg")}
-            style={{
-              height: 40,
-              width: 40,
-              alignSelf: "center",
-              marginTop: 15,
-            }}
+            style={styles.eventimage}
           ></Image>
-          <Text
-            style={{
-              direction: "rtl",
-              marginLeft: "inherit",
-              height: 28,
-              fontSize: 30,
-              textAlign: "center",
-              marginTop: 10,
-            }}
-          >
-            33
-          </Text>
-          <Text
-            style={{
-              direction: "rtl",
-              marginLeft: "inherit",
-              height: 28,
-              fontSize: 18,
-              textAlign: "center",
-              marginTop: 8,
-              color: "rgba(0, 0, 0, 0.54)",
-            }}
-          >
-            הנעה
-          </Text>
+          <Text style={styles.eventnum}>33</Text>
+          <Text style={styles.eventtext}>הנעה</Text>
         </View>
-        <View
-          style={{
-            height: 140,
-            width: 80,
-            borderRadius: 6,
-            shadowOffset: { width: 0, height: 1 },
-            shadowColor: "rgba(0, 0, 0, 0.075)",
-            shadowRadius: 8,
-            marginLeft: 10,
-          }}
-        >
+        <View style={styles.event}>
           <Image
             source={require("../assets/images/flatTire4.svg")}
-            style={{
-              height: 40,
-              width: 40,
-              alignSelf: "center",
-              marginTop: 15,
-            }}
+            style={styles.eventimage}
           ></Image>
-          <Text
-            style={{
-              direction: "rtl",
-              height: 28,
-              fontSize: 30,
-              textAlign: "center",
-              marginTop: 10,
-            }}
-          >
-            4
-          </Text>
-          <Text
-            style={{
-              direction: "rtl",
-              height: 28,
-              fontSize: 18,
-              textAlign: "center",
-              marginTop: 8,
-              color: "rgba(0, 0, 0, 0.54)",
-            }}
-          >
-            פנצ׳ר
-          </Text>
+          <Text style={styles.eventnum}>4</Text>
+          <Text style={styles.eventtext}>פנצ׳ר</Text>
         </View>
-        <View
-          style={{
-            height: 140,
-            width: 80,
-            borderRadius: 6,
-            shadowOffset: { width: 0, height: 1 },
-            shadowColor: "rgba(0, 0, 0, 0.075)",
-            shadowRadius: 8,
-            marginLeft: 10,
-          }}
-        >
+        <View style={styles.event}>
           <Image
             source={require("../assets/images/oil.svg")}
-            style={{
-              height: 40,
-              width: 40,
-              alignSelf: "center",
-              marginTop: 15,
-            }}
+            style={styles.eventimage}
           ></Image>
-          <Text
-            style={{
-              direction: "rtl",
-              height: 28,
-              fontSize: 30,
-              textAlign: "center",
-              marginTop: 10,
-            }}
-          >
-            2
-          </Text>
-          <Text
-            style={{
-              direction: "rtl",
-              height: 28,
-              fontSize: 17,
-              textAlign: "center",
-              marginTop: 8,
-              color: "rgba(0, 0, 0, 0.54)",
-            }}
-          >
-            שמן-דלק מים
-          </Text>
+          <Text style={styles.eventnum}>2</Text>
+          <Text style={styles.eventtext}>שמן-דלק מים</Text>
         </View>
-        <View
-          style={{
-            height: 140,
-            width: 80,
-            borderRadius: 6,
-            shadowOffset: { width: 0, height: 1 },
-            shadowColor: "rgba(0, 0, 0, 0.075)",
-            shadowRadius: 8,
-            marginLeft: 10,
-          }}
-        >
+        <View style={styles.event}>
           <Image
             source={require("../assets/images/other.svg")}
-            style={{
-              height: 40,
-              width: 40,
-              alignSelf: "center",
-              marginTop: 15,
-            }}
+            style={styles.eventimage}
           ></Image>
-          <Text
-            style={{
-              direction: "rtl",
-              height: 28,
-              fontSize: 30,
-              textAlign: "center",
-              marginTop: 10,
-            }}
-          >
-            1
-          </Text>
-          <Text
-            style={{
-              direction: "rtl",
-              height: 28,
-              fontSize: 17,
-              textAlign: "center",
-              marginTop: 8,
-              color: "rgba(0, 0, 0, 0.54)",
-            }}
-          >
-            אחר
-          </Text>
+          <Text style={styles.eventnum}>1</Text>
+          <Text style={styles.eventtext}>אחר</Text>
         </View>
       </View>
     </View>
@@ -302,8 +68,10 @@ export default function EventsPage() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 80,
-    paddingStart: 10,
+    paddingTop: "5%",
+    paddingStart: "1%",
+    paddingEnd: "1%",
+    margin: "2%",
   },
   title: {
     height: 19,
@@ -317,5 +85,113 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     height: 1,
     width: "80%",
+  },
+  events: {
+    // flex: 1,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    height: Dimensions.get("screen").height * 0.23,
+    width: Dimensions.get("screen").width * 0.95,
+    justifyContent: "space-around",
+  },
+  allevents: {
+    backgroundColor: "#2798D5",
+    width: Dimensions.get("screen").width * 0.65,
+    height: Dimensions.get("screen").height * 0.21,
+    borderRadius: 6,
+    shadowOffset: { width: 0, height: 1 },
+    shadowColor: "rgba(0, 0, 0, 0.075)",
+    shadowRadius: 8,
+  },
+  alleventsimage: {
+    height: "46%",
+    width: "22%",
+    left: "3%",
+    top: "4%",
+    backgroundColor: "#2798D5",
+  },
+  alleventsnum: {
+    fontSize: 29,
+    height: "20%",
+    marginLeft: "2%",
+    width: "24%",
+    marginTop: "4%",
+    color: "white",
+  },
+  alleventstext: {
+    fontSize: 22,
+    // lineHeight: 24,
+    height: "20%",
+    width: "70%",
+    marginLeft: "2%",
+    direction: "rtl",
+    color: "white",
+  },
+
+  monthlyevents: {
+    alignContent: "space-between",
+    borderRadius: 6,
+    width: Dimensions.get("screen").width * 0.25,
+    height: Dimensions.get("screen").height * 0.21,
+    backgroundColor: "#B9D15F",
+    alignItems: "center",
+  },
+  monthlyeventsimage: {
+    marginTop: "10%",
+    height: "28%",
+    width: "60%",
+  },
+  monthlyeventsnum: {
+    marginTop: "10%",
+    height: "25%",
+    width: "49%",
+    fontSize: 36,
+    color: "white",
+  },
+  monthlyeventstext: {
+    fontSize: 17,
+    direction: "rtl",
+    height: "28%",
+    width: "80%",
+    textAlign: "center",
+    color: "white",
+  },
+  event: {
+    width: Dimensions.get("screen").width * 0.22,
+    height: Dimensions.get("screen").height * 0.21,
+    borderRadius: 6,
+    shadowOffset: { width: 0, height: 1 },
+    shadowColor: "rgba(0, 0, 0, 0.075)",
+    shadowRadius: 8,
+  },
+  eventimage: {
+    height: "25%",
+    width: "45%",
+    alignSelf: "center",
+    marginTop: "10%",
+  },
+  eventnum: {
+    direction: "rtl",
+    marginLeft: "inherit",
+    height: "20%",
+    fontSize: 30,
+    textAlign: "center",
+    marginTop: "10%",
+  },
+  eventtext: {
+    direction: "rtl",
+    marginLeft: "inherit",
+    height: "28%",
+    fontSize: 18,
+    textAlign: "center",
+    marginTop: "10%",
+    color: "rgba(0, 0, 0, 0.54)",
+  },
+  events2: {
+    display: "flex",
+    flexDirection: "row",
+    marginTop: "2%",
+    height: Dimensions.get("screen").height * 0.23,
+    justifyContent: "space-between",
   },
 });
