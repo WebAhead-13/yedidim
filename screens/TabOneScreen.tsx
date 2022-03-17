@@ -52,26 +52,37 @@ export default function TabOneScreen({
   navigation,
 }: RootTabScreenProps<"TabOne">) {
   return (
-    <FlatList
-      keyExtractor={(event) => event.time}
-      data={data}
-      renderItem={({ item }) => {
-        return (
-          <List.Item
-            title={item.eventType}
-            titleStyle={styles.title}
-            description={item.carType}
-            // style={styles.item}
-          />
-        );
-      }}
-    />
+    // <FlatList
+    //   keyExtractor={(event) => event.time}
+    //   data={data}
+    //   renderItem={({ item }) => {
+    //     return (
+    //       <List.Item
+    //         title={item.eventType}
+    //         titleStyle={styles.title}
+    //         description={item.carType}
+    //         // style={styles.item}
+    //       />
+    //     );
+    //   }}
+    // />
+    <View>
+      <Text style={styles.title}>Tab One</Text>
+      <View lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   item: {
     backgroundColor: "white",
+    height: 99,
+    width: 358,
+    left: 8,
+    top: 153,
+    borderRadius: 12,
+    padding: "16px, 0px, 16px, 0px",
   },
   title: {
     backgroundColor: "#213C4F",
