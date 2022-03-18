@@ -4,7 +4,7 @@ import { requireNativeComponent, View } from "react-native";
 import { Text, Pressable } from "react-native";
 import TabOneScreen from "../screens/TabOneScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
-import TabThreeScreen from "../screens/TabThreeScreen";
+import EventsPageScreen from "../screens/EventsPage";
 import ProfileScreen from "../screens/ProfileScreen";
 import useColorScheme from "../hooks/useColorScheme";
 import * as React from "react";
@@ -69,9 +69,9 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="TabThree"
-        component={TabThreeScreen}
+        component={EventsPageScreen}
         options={{
-          title: "Tab Three",
+          title: "אירועים שלי",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
