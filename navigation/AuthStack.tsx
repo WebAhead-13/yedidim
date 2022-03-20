@@ -32,7 +32,7 @@ function AuthStack() {
           </View>
         )}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="Verify"
         options={({ navigation, route }) => ({
           headerRight: () => {
@@ -64,7 +64,7 @@ function AuthStack() {
             </Button>
           </View>
         )}
-      />
+      /> */}
     </Stack.Navigator>
   );
 }
