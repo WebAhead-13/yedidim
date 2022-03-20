@@ -3,8 +3,8 @@ import { BottomNavigation, Button } from "react-native-paper";
 import { Text, Pressable } from "react-native";
 import TabOneScreen from "../screens/TabOneScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
-import TabThreeScreen from "../screens/TabThreeScreen";
-import TabFourScreen from "../screens/TabFourScreen";
+import EventsPageScreen from "../screens/EventsPage";
+import ProfileScreen from "../screens/ProfileScreen";
 import useColorScheme from "../hooks/useColorScheme";
 
 import * as React from "react";
@@ -13,11 +13,6 @@ import { RootTabParamList, RootTabScreenProps } from "../types";
 import { FontAwesome } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
 
-const RecentsRoute = ({ navigation }: any) => (
-  <Button onPress={() => navigation.navigate("TabOneScreen")}>Recents</Button>
-);
-
-const TestRoute = () => <Text>TestRoute</Text>;
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function TabBarIcon(props: {
@@ -32,7 +27,7 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="ProfileScreen"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}
@@ -70,17 +65,17 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="TabThree"
-        component={TabThreeScreen}
+        component={EventsPageScreen}
         options={{
-          title: "Tab Three",
+          title: "אירועים שלי",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="TabFour"
-        component={TabFourScreen}
+        name="ProfileScreen"
+        component={ProfileScreen}
         options={{
-          title: "Tab Four",
+          title: "פרופיל",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
