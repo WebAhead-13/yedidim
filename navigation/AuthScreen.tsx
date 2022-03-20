@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import {
   StyleSheet,
   SafeAreaView,
@@ -8,11 +8,11 @@ import {
   TextInput,
   Image,
   Dimensions,
-} from "react-native";
-import { Button } from "react-native-paper";
-import SMSVerifyCode from "react-native-sms-verifycode";
+} from "react-native"
+import { Button } from "react-native-paper"
+import SMSVerifyCode from "react-native-sms-verifycode"
 
-import { LinearGradient } from "expo-linear-gradient";
+import { LinearGradient } from "expo-linear-gradient"
 
 const AuthScreen = () => {
   return (
@@ -49,60 +49,6 @@ const AuthScreen = () => {
         </Text>
 
         <View style={styles.textInputRow}>
-          {/* <TextInput
-      style={styles.textInput} 
-      
-      placeholder=''
-      placeholderTextColor='#eee'
-      keyboardType='numeric'
-      maxLength={1}
-      
-    />
-     
-     <TextInput
-      style={styles.textInput}
-      placeholder=''
-      placeholderTextColor='#eee'
-      keyboardType='numeric'
-      maxLength={1}
-      
-    /> 
-     <TextInput
-      style={styles.textInput}
-      placeholder=''
-      placeholderTextColor='#eee'
-      keyboardType='numeric'
-      maxLength={1}
-      
-    />
-
-<TextInput
-      style={styles.textInput}
-      placeholder=''
-      placeholderTextColor='#eee'
-      keyboardType='numeric'
-      maxLength={1}
-      
-    />
-
-<TextInput
-      style={styles.textInput}
-      placeholder=''
-      placeholderTextColor='#eee'
-      keyboardType='numeric'
-      maxLength={1}
-      
-    />
-
-<TextInput
-      style={styles.textInput}
-      placeholder=''
-      placeholderTextColor='#eee'
-      keyboardType='numeric'
-      maxLength={1}
-      
-    /> */}
-
           <SMSVerifyCode
             verifyCodeLength={6}
             containerPaddingVertical={10}
@@ -130,9 +76,9 @@ const AuthScreen = () => {
         </Text>
       </View>
     </View>
-  );
-};
-export default AuthScreen;
+  )
+}
+export default AuthScreen
 
 const styles = StyleSheet.create({
   container: {
@@ -143,13 +89,14 @@ const styles = StyleSheet.create({
   subContainer: {
     backgroundColor: "white",
     height: "70%",
-    marginTop: "auto",
+    position: "absolute",
+    bottom: 0,
+    width: Dimensions.get("window").width,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
     padding: 20,
   },
   floating: {
-    top: -25,
     textAlign: "center",
     backgroundColor: "#C25C9E",
     color: "#fff",
@@ -166,8 +113,10 @@ const styles = StyleSheet.create({
   },
   floatingView: {
     position: "absolute",
+    top: -25,
+    right: 0,
+    left: 0,
     flex: 1,
-    justifyContent: "center",
     alignItems: "center",
     width: Dimensions.get("window").width,
   },
@@ -217,8 +166,6 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: "#336CA0",
     marginTop: 25,
-
-    // marginLeft:40
   },
   logo: {
     width: 81,
@@ -234,4 +181,4 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontStyle: "normal",
   },
-});
+})
