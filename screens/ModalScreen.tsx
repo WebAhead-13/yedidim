@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width,
     position: "absolute",
     bottom: 0,
-    boxShadow: "0px -2px 5px #ddd",
+    // boxShadow: "0px -2px 5px #ddd",
     paddingTop: 10,
     paddingBottom: 40,
     backgroundColor: "white",

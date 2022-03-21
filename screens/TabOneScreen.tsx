@@ -1,92 +1,64 @@
-import { FlatList, StyleSheet } from "react-native";
-
-import EditScreenInfo from "../components/EditScreenInfo";
+import {
+  StyleSheet,
+  SafeAreaView,
+  Dimensions,
+  TouchableOpacity,
+  Image,
+} from "react-native";
 import { Text, View } from "../components/Themed";
 import { RootTabScreenProps } from "../types";
-import { List } from "react-native-paper";
-
-const data = [
-  {
-    eventType: "פנצ׳ר",
-    carType: "סיטוראן ברלינגו",
-    isPrivateCar: true,
-    address: "דרך כרמל 63",
-    city: "ירושלים",
-    lat: "",
-    lng: "",
-    time: "14:54",
-  },
-  {
-    eventType: "שמן-מימ-דלק",
-    carType: "טויוטה קורולה",
-    isPrivateCar: true,
-    address: "םילשורי ,7 ןיול והירמש - מ״ק 1.5",
-    city: "ירושלים",
-    lat: "",
-    lng: "",
-    time: "14:00",
-  },
-  {
-    eventType: "חטש ץוליח",
-    carType: "סוקופ דרופ",
-    isPrivateCar: true,
-    address: "םילשורי ,29 םיכורב לאומש םכח - מ״ק 1.7",
-    city: "ירושלים",
-    lat: "",
-    lng: "",
-    time: "14:50",
-  },
-  {
-    eventType: "םילבכ/הענה",
-    carType: "סוקופ דרופ",
-    isPrivateCar: true,
-    address: "םילשורי ,1 הדוהי יבצ ברה - מ״ק 1.9",
-    city: "ירושלים",
-    lat: "",
-    lng: "",
-    time: "14:04",
-  },
-];
+import MainEventList from "../components/MainEventList";
+import React from "react";
+import MainEventMap from "../components/MainEventMap";
 
 export default function TabOneScreen({
   navigation,
 }: RootTabScreenProps<"TabOne">) {
+  const currentTime = new Date();
+  const [isMap, setISMap] = React.useState(false);
   return (
-    // <FlatList
-    //   keyExtractor={(event) => event.time}
-    //   data={data}
-    //   renderItem={({ item }) => {
-    //     return (
-    //       <List.Item
-    //         title={item.eventType}
-    //         titleStyle={styles.title}
-    //         description={item.carType}
-    //         // style={styles.item}
-    //       />
-    //     );
-    //   }}
-    // />
-    <View>
-      <Text style={styles.title}>Tab One</Text>
-      <View lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
-    </View>
+    <SafeAreaView
+      style={{ position: "relative", height: Dimensions.get("window").height }}
+    >
+      {isMap ? <MainEventMap /> : <MainEventList />}
+      <TouchableOpacity
+        style={styles.mapToggle}
+        onPress={() => (isMap ? setISMap(false) : setISMap(true))}
+        activeOpacity={1}
+      >
+        <Image
+          source={
+            isMap
+              ? require("../assets/images/listview.png")
+              : require("../assets/images/map.png")
+          }
+          style={{ width: 35, height: 35, paddingLeft: 20 }}
+        />
+        <Text style={{ paddingRight: 10, color: "white" }}>
+          {isMap ? "תצוגת רשימה" : "תצוגת מפה"}
+        </Text>
+      </TouchableOpacity>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  item: {
-    backgroundColor: "white",
-    height: 99,
-    width: 358,
-    left: 8,
-    top: 153,
-    borderRadius: 12,
-    padding: "16px, 0px, 16px, 0px",
-  },
-  title: {
-    backgroundColor: "#213C4F",
-    fontSize: 18,
-    fontWeight: "bold",
+  mapToggle: {
+    color: "white",
+    zIndex: 10,
+    position: "absolute",
+    bottom: 140,
+    alignSelf: "center",
+    borderRadius: 999,
+    backgroundColor: "rgba(0, 0, 0, 0.66)",
+    paddingHorizontal: 20,
+    height: 50,
+    // paddingBottom: 20,
+    // flex: 1,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: 15,
   },
 });
