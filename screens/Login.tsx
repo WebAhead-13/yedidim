@@ -1,8 +1,7 @@
 import React from "react";
 import { Text, StyleSheet, View, Image, ButtonProps } from "react-native";
 import UselessTextInput from "../components/UselessTextInput";
-import { TextInput } from "react-native-paper";
-import { Button, Alert } from "react-native";
+import { TextInput, Button } from "react-native-paper";
 import {
   ImageBackground,
   Dimensions,
@@ -17,77 +16,99 @@ type Props = {
   onChangeText: (val: string) => void;
   text?: string;
 };
+import { LinearGradient } from "expo-linear-gradient";
+
 const Login = () => {
-  // const [setText] = React.useState("");
   const [text, setText] = React.useState("");
   const [number, onChangeNumber] = React.useState(null);
   const onChangeText = (text: string) => setText(text);
-  // const [setText] = React.useState(null);
-  // const CustomInput = ({ onChangeText, text }: Props) => {
   return (
-    <View style={styles.main}>
-      <Image
-        style={{ width: "50%", height: "50%" }}
-        resizeMode="contain"
-        source={require("../assets/images/YedidimLogo.jpg")}
-      />
-      <View style={styles.inputContainer}>
-        <TextInput
-          placeholder="מספר נייד"
-          autoComplete={Number}
-          // onChangeText={onChangeNumber}
-          keyboardType="numeric"
-          style={styles.eamil}
-          left={
-            <TextInput.Icon
-              name={() => (
-                <Image
-                  source={require("../assets/images/phone_iphone.svg")}
-                  resizeMode="cover"
-                  style={{
-                    width: 20,
-                    height: 20,
-                  }}
-                />
-              )}
-            />
-          }
-          // onChangeText={(onChangeText) => setText(text)}
-          // onChangeText={(text) => setText(number)}
-          mode="outlined"
+    <View style={styles.container}>
+      <LinearGradient
+        colors={["#0F425F", "#2798D5"]}
+        start={{
+          x: 0,
+          y: 0,
+        }}
+        end={{
+          x: 1,
+          y: 0,
+        }}
+        style={styles.box}
+      >
+        <Image
+          style={styles.logo}
+          resizeMode="contain"
+          source={require("../assets/images/Yedidimlogo.png")}
         />
-        <TextInput
-          placeholder="תעודת זהות"
-          autoComplete={null}
-          value={text}
-          style={styles.title}
-          left={
-            <TextInput.Icon
-              name={() => (
-                <Image
-                  source={require("../assets/images/Vector.svg")}
-                  resizeMode="cover"
-                  style={{
-                    width: 20,
-                    height: 20,
-                  }}
-                />
-              )}
-            />
-          }
-          onChangeText={(text) => setText(text)}
-          mode="outlined"
-        />
-        <a href="https://google.com">שכחתי סיסמא</a>
-        <Button
-          // style={styles.title}
-          title="התחברות"
-          onPress={() => Alert.alert("!!!1!")}
-        />
-        {/* <Button mode="contained" onPress={() => console.log("Pressed")}>
-        התחברות
-      </Button> */}
-        <a href="https://google.com"> הרשמה</a> <text>עדיין לא התחברת ?</text>
+      </LinearGradient>
+      <View style={styles.subContainer}>
+        <View style={styles.floatingView}>
+          <Button style={styles.floating} labelStyle={styles.floatingText}>
+            ידידים-כונן
+          </Button>
+        </View>
+        <View style={styles.inputContainer}>
+          <TextInput
+            placeholder="מספר נייד"
+            autoComplete={Number}
+            keyboardType="numeric"
+            style={styles.eamil}
+            left={
+              <TextInput.Icon
+                name={() => (
+                  <Image
+                    source={require("../assets/images/phone_iphone.svg")}
+                    resizeMode="cover"
+                    style={{
+                      width: 20,
+                      height: 20,
+                    }}
+                  />
+                )}
+              />
+            }
+            mode="outlined"
+          />
+          <TextInput
+            placeholder="תעודת זהות"
+            autoComplete={null}
+            value={text}
+            style={styles.title}
+            left={
+              <TextInput.Icon
+                name={() => (
+                  <Image
+                    source={require("../assets/images/Vector.svg")}
+                    resizeMode="cover"
+                    style={{
+                      width: 20,
+                      height: 20,
+                    }}
+                  />
+                )}
+              />
+            }
+            onChangeText={(text) => setText(text)}
+            mode="outlined"
+          />
+          <Text style={styles.smsText}>
+            <Text style={styles.underlinedText}>שכחתי סיסמא</Text>
+          </Text>
+          <LinearGradient
+            colors={["#3A8844", "#75BE75"]}
+            start={{ x: 0, y: 0.5 }}
+            end={{ x: 1, y: 1 }}
+            style={styles.themeButton}
+          >
+            <TouchableOpacity>
+              <Text style={styles.themeButtonTitle}>התחברות</Text>
+            </TouchableOpacity>
+          </LinearGradient>
+          <Text style={styles.smsText}>
+            עדיין לא התחברת ?<Text style={styles.underlinedText}>הרשמה</Text>
+          </Text>
+        </View>
       </View>
     </View>
   );
@@ -96,7 +117,6 @@ const styles = StyleSheet.create({
   inputContainer: {
     padding: 20,
     backgroundColor: "white",
-    // borderTopEndRadius: "30",
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
     marginTop: "auto",
@@ -105,7 +125,6 @@ const styles = StyleSheet.create({
     position: "relative",
   },
   main: {
-    backgroundColor: "blue",
     height: Dimensions.get("window").height,
   },
   eamil: {
@@ -131,21 +150,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     textDecorationLine: "underline",
     color: "#336CA0",
-    // position: absolute;
-    // left: 18.93%,
-    // right: 17.6%,
-    // top: 50.4%,
-    // bottom: 46.55%,
-    // font-family: 'Assistant',
-    // font-style: 'normal',
-    // font-weight: 700,
-    // font-size: 15,
-    // line-height: 20,
-    // display: flex,
-    // align-items: center,
-    // text-align: center,
-    // text-decoration-line: underline,
-    // color: #336CA0,
   },
   title: {
     borderTopRightRadius: 50,
@@ -154,6 +158,82 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 50,
     paddingRight: 20,
     borderBottom: 0,
+    borderRadius: 20,
+  },
+  themeButtonTitle: {
+    fontSize: 18,
+    color: "#fff",
+  },
+  themeButton: {
+    width: "100%",
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#3A8844",
+    borderColor: "white",
+    borderWidth: 0,
+    borderRadius: 25,
+  },
+  underlinedText: {
+    fontWeight: "bold",
+    fontStyle: "normal",
+    textDecorationLine: "underline",
+  },
+  smsText: {
+    position: "relative",
+    textAlign: "center",
+    fontSize: 15,
+    color: "#336CA0",
+    marginTop: 25,
+  },
+  logo: {
+    width: 81,
+    height: 106,
+    marginTop: 40,
+    alignSelf: "center",
+  },
+  container: {
+    height: "100%",
+    alignSelf: "center",
+    width: Dimensions.get("window").width,
+  },
+  subContainer: {
+    backgroundColor: "white",
+    height: "70%",
+    position: "absolute",
+    bottom: 0,
+    width: Dimensions.get("window").width,
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
+    padding: 20,
+  },
+  floating: {
+    textAlign: "center",
+    backgroundColor: "#C25C9E",
+    color: "#fff",
+    paddingHorizontal: 3,
+    paddingVertical: 1,
+    borderTopEndRadius: 30,
+    borderBottomStartRadius: 30,
+    overflow: "hidden",
+  },
+  floatingText: {
+    color: "white",
+    fontSize: 20,
+    fontStyle: "normal",
+  },
+  floatingView: {
+    position: "absolute",
+    top: -25,
+    right: 0,
+    left: 0,
+    flex: 1,
+    alignItems: "center",
+    width: Dimensions.get("window").width,
+  },
+  box: {
+    width: "100%",
+    height: "100%",
   },
 });
 export default Login;

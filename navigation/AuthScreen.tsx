@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
 import {
   StyleSheet,
   SafeAreaView,
@@ -8,11 +8,11 @@ import {
   TextInput,
   Image,
   Dimensions,
-} from "react-native"
-import { Button } from "react-native-paper"
-import SMSVerifyCode from "react-native-sms-verifycode"
+} from "react-native";
+import { Button } from "react-native-paper";
+import SMSVerifyCode from "react-native-sms-verifycode";
 
-import { LinearGradient } from "expo-linear-gradient"
+import { LinearGradient } from "expo-linear-gradient";
 
 const AuthScreen = () => {
   return (
@@ -59,26 +59,17 @@ const AuthScreen = () => {
             codeFontSize={26}
           />
         </View>
-
-        <LinearGradient
-          colors={["#3A8844", "#75BE75"]}
-          start={{ x: 0, y: 0.5 }}
-          end={{ x: 1, y: 1 }}
-          style={styles.themeButton}
-        >
-          <TouchableOpacity>
-            <Text style={styles.themeButtonTitle}>התחברות</Text>
-          </TouchableOpacity>
-        </LinearGradient>
-
+        <TouchableOpacity>
+          <Text style={styles.themeButtonTitle}>התחברות</Text>
+        </TouchableOpacity>
         <Text style={styles.smsText}>
           לא קיבלת את הקוד ? <Text style={styles.underlinedText}>שלחו שוב</Text>
         </Text>
       </View>
     </View>
-  )
-}
-export default AuthScreen
+  );
+};
+export default AuthScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -181,4 +172,4 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontStyle: "normal",
   },
-})
+});

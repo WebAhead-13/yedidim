@@ -20,7 +20,7 @@ export default function Navigation() {
 }
 
 function RootNavigator() {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
   // test if user is logged in, in the AsyncStorage
   React.useEffect(() => {
@@ -35,7 +35,7 @@ function RootNavigator() {
   }, []);
 
   if (!isLoggedIn) {
-    return <AuthScreen />;
+    return <AuthStack />;
   }
 
   return <UserStack />;
