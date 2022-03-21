@@ -53,7 +53,8 @@ const Login = () => {
             placeholder="מספר נייד"
             autoComplete={Number}
             keyboardType="numeric"
-            style={styles.eamil}
+            style={styles.sms}
+            theme={{ roundness: 49 }}
             left={
               <TextInput.Icon
                 name={() => (
@@ -74,7 +75,8 @@ const Login = () => {
             placeholder="תעודת זהות"
             autoComplete={null}
             value={text}
-            style={styles.title}
+            style={styles.sms}
+            theme={{ roundness: 49 }}
             left={
               <TextInput.Icon
                 name={() => (
@@ -185,6 +187,14 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: "#336CA0",
     marginTop: 25,
+  },
+  sms: {
+    position: "relative",
+    textAlign: "left",
+    fontSize: 15,
+    color: "#336CA0",
+    marginTop: 25,
+    borderTopEndRadius: 20,
   },
   logo: {
     width: 81,
