@@ -9,6 +9,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import AuthStack from "./AuthStack";
 import LinkingConfiguration from "./LinkingConfiguration";
 import UserStack from "./UserStack";
+import AuthScreen from "./AuthScreen";
 
 export default function Navigation() {
   return (
@@ -19,7 +20,7 @@ export default function Navigation() {
 }
 
 function RootNavigator() {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
 
   // test if user is logged in, in the AsyncStorage
   React.useEffect(() => {
@@ -34,7 +35,7 @@ function RootNavigator() {
   }, []);
 
   if (!isLoggedIn) {
-    return <AuthStack />;
+    return <AuthScreen />;
   }
 
   return <UserStack />;
