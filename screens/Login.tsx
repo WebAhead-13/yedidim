@@ -26,6 +26,11 @@ const Login = () => {
   // const CustomInput = ({ onChangeText, text }: Props) => {
   return (
     <View style={styles.main}>
+      <Image
+        style={{ width: "50%", height: "50%" }}
+        resizeMode="contain"
+        source={require("../assets/images/YedidimLogo.jpg")}
+      />
       <View style={styles.inputContainer}>
         <TextInput
           placeholder="מספר נייד"
