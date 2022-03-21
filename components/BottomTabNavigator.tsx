@@ -1,4 +1,5 @@
 import { BottomNavigation, Button } from "react-native-paper";
+import { requireNativeComponent, View } from "react-native";
 
 import { Text, Pressable } from "react-native";
 import TabOneScreen from "../screens/TabOneScreen";
@@ -6,12 +7,12 @@ import TabTwoScreen from "../screens/TabTwoScreen";
 import EventsPageScreen from "../screens/EventsPage";
 import ProfileScreen from "../screens/ProfileScreen";
 import useColorScheme from "../hooks/useColorScheme";
-
 import * as React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { RootTabParamList, RootTabScreenProps } from "../types";
 import { FontAwesome } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
+import LinearGradient from "./LinearGradient";
 
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
@@ -38,6 +39,9 @@ function BottomTabNavigator() {
         options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
           title: "Tab One",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerBackground: () => (
+            <LinearGradient color1="#0F425F" color2="#0F93DB" />
+          ),
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate("Modal")}
