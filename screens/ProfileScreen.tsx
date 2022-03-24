@@ -1,9 +1,9 @@
-import * as React from "react";
-import { StyleSheet, Image, ScrollView } from "react-native";
-import { List, Button } from "react-native-paper";
+import * as React from "react"
+import { StyleSheet, Image, ScrollView } from "react-native"
+import { List, Button } from "react-native-paper"
 
-import Fonts from "../constants/Fonts";
-import { Text, View } from "../components/Themed";
+import Fonts from "../constants/Fonts"
+import { Text, View } from "../components/Themed"
 
 export default function ProfileScreen({ navigation }: any) {
   const Accordion = [
@@ -15,7 +15,7 @@ export default function ProfileScreen({ navigation }: any) {
       title: "שיתוף אפליקציה",
       childs: [{ name: "child1" }],
     },
-  ];
+  ]
 
   return (
     <View style={styles.container}>
@@ -56,10 +56,10 @@ export default function ProfileScreen({ navigation }: any) {
                     title={element.title}
                   >
                     {element.childs.map((child) => {
-                      return <List.Item key={child.name} title={child.name} />;
+                      return <List.Item key={child.name} title={child.name} />
                     })}
                   </List.Accordion>
-                );
+                )
               })}
             </List.Section>
           </View>
@@ -85,7 +85,7 @@ export default function ProfileScreen({ navigation }: any) {
         </View>
       </ScrollView>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
   },
   settings: {
     marginLeft: 18,
-    fontWeight: "600",
+    // fontWeight: "600",
     fontSize: 18,
     display: "flex",
     color: "#455A64",
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   versionContainer: {
     display: "flex",
     flexDirection: "row",
-    fontWeight: "600",
+    // fontWeight: "600",
     fontSize: 13,
     marginTop: 50,
   },
@@ -156,4 +156,4 @@ const styles = StyleSheet.create({
     color: "#336CA0",
     fontSize: 13,
   },
-});
+})

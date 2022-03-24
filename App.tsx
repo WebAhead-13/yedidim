@@ -1,12 +1,12 @@
-import { StatusBar } from "expo-status-bar";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import { I18nManager } from "react-native";
+import { StatusBar } from "expo-status-bar"
+import { SafeAreaProvider } from "react-native-safe-area-context"
+import { I18nManager } from "react-native"
 
-import useCachedResources from "./hooks/useCachedResources";
-import useColorScheme from "./hooks/useColorScheme";
-import Navigation from "./navigation";
-import { useEffect } from "react";
-import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
+import useCachedResources from "./hooks/useCachedResources"
+import useColorScheme from "./hooks/useColorScheme"
+import Navigation from "./navigation"
+import { useEffect } from "react"
+import { DefaultTheme, Provider as PaperProvider } from "react-native-paper"
 import {
   useFonts,
   Assistant_400Regular,
@@ -14,24 +14,24 @@ import {
   Assistant_300Light,
   Assistant_500Medium,
   Assistant_200ExtraLight,
-} from "@expo-google-fonts/assistant";
-import Colors from "./constants/Colors";
-import AppLoading from "expo-app-loading";
+} from "@expo-google-fonts/assistant"
+import Colors from "./constants/Colors"
+import AppLoading from "expo-app-loading"
 
 export default function App() {
-  const isLoadingComplete = useCachedResources();
-  const colorScheme = useColorScheme();
+  const isLoadingComplete = useCachedResources()
+  const colorScheme = useColorScheme()
   let [fontsLoaded] = useFonts({
     Assistant_400Regular,
     Assistant_700Bold,
     Assistant_300Light,
     Assistant_500Medium,
     Assistant_200ExtraLight,
-  });
+  })
 
   useEffect(() => {
-    I18nManager.forceRTL(true);
-  }, []);
+    I18nManager.forceRTL(true)
+  }, [])
 
   const theme = {
     ...DefaultTheme,
@@ -54,10 +54,10 @@ export default function App() {
         fontFamily: "Assistant_200ExtraLight",
       },
     },
-  };
+  }
 
   if (!fontsLoaded || !isLoadingComplete) {
-    return <AppLoading />;
+    return <AppLoading />
   }
 
   return (
@@ -67,5 +67,5 @@ export default function App() {
         <StatusBar />
       </PaperProvider>
     </SafeAreaProvider>
-  );
+  )
 }

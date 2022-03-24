@@ -1,13 +1,13 @@
-import * as React from "react";
-import { Modal, Portal, Button, Provider } from "react-native-paper";
-import { StyleSheet, Image } from "react-native";
-import { View, Text } from "./Themed";
+import * as React from "react"
+import { Modal, Portal, Button, Provider } from "react-native-paper"
+import { StyleSheet, Image } from "react-native"
+import { View, Text } from "./Themed"
 
 export const MyModal = () => {
-  const [visible, setVisible] = React.useState(false);
+  const [visible, setVisible] = React.useState(true)
 
-  const showModal = () => setVisible(true);
-  const hideModal = () => setVisible(false);
+  const showModal = () => setVisible(true)
+  const hideModal = () => setVisible(false)
 
   return (
     <View>
@@ -35,8 +35,8 @@ export const MyModal = () => {
         סיים אירוע
       </Button>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   contentContainerStyle: {
@@ -79,4 +79,4 @@ const styles = StyleSheet.create({
     textAlign: "center",
     letterspacing: 0.5,
   },
-});
+})

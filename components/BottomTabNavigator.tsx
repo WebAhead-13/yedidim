@@ -1,30 +1,30 @@
-import { BottomNavigation, Button } from "react-native-paper";
-import { requireNativeComponent, View } from "react-native";
+import { BottomNavigation, Button } from "react-native-paper"
+import { requireNativeComponent, View } from "react-native"
 
-import { Text, Pressable } from "react-native";
-import TabOneScreen from "../screens/TabOneScreen";
-import TabTwoScreen from "../screens/TabTwoScreen";
-import EventsPageScreen from "../screens/EventsPage";
-import ProfileScreen from "../screens/ProfileScreen";
-import useColorScheme from "../hooks/useColorScheme";
-import * as React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { RootTabParamList, RootTabScreenProps } from "../types";
-import { FontAwesome } from "@expo/vector-icons";
-import Colors from "../constants/Colors";
-import LinearGradient from "./LinearGradient";
+import { Text, Pressable } from "react-native"
+import TabOneScreen from "../screens/TabOneScreen"
+import TabTwoScreen from "../screens/TabTwoScreen"
+import EventsPageScreen from "../screens/EventsPage"
+import ProfileScreen from "../screens/ProfileScreen"
+import useColorScheme from "../hooks/useColorScheme"
+import * as React from "react"
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { RootTabParamList, RootTabScreenProps } from "../types"
+import { FontAwesome } from "@expo/vector-icons"
+import Colors from "../constants/Colors"
+import LinearGradient from "./LinearGradient"
 
-const BottomTab = createBottomTabNavigator<RootTabParamList>();
+const BottomTab = createBottomTabNavigator<RootTabParamList>()
 
 function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>["name"];
-  color: string;
+  name: React.ComponentProps<typeof FontAwesome>["name"]
+  color: string
 }) {
-  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
+  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />
 }
 
 function BottomTabNavigator() {
-  const colorScheme = useColorScheme();
+  const colorScheme = useColorScheme()
 
   return (
     <BottomTab.Navigator
@@ -73,17 +73,29 @@ function BottomTabNavigator() {
         options={{
           title: "אירועים שלי",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerTitleStyle: {
+            color: "white",
+          },
+          headerBackground: () => (
+            <LinearGradient color1="#0F425F" color2="#0F93DB" />
+          ),
         }}
       />
       <BottomTab.Screen
         name="ProfileScreen"
         component={ProfileScreen}
         options={{
-          title: "פרופיל",
+          title: "פרופיל משתמש",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerTitleStyle: {
+            color: "white",
+          },
+          headerBackground: () => (
+            <LinearGradient color1="#0F425F" color2="#0F93DB" />
+          ),
         }}
       />
     </BottomTab.Navigator>
-  );
+  )
 }
-export default BottomTabNavigator;
+export default BottomTabNavigator

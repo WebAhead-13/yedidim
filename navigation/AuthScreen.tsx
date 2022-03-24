@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import {
   StyleSheet,
   SafeAreaView,
@@ -8,11 +8,11 @@ import {
   TextInput,
   Image,
   Dimensions,
-} from "react-native";
-import { Button } from "react-native-paper";
-import SMSVerifyCode from "react-native-sms-verifycode";
+} from "react-native"
+import { Button } from "react-native-paper"
+import SMSVerifyCode from "react-native-sms-verifycode"
 
-import { LinearGradient } from "expo-linear-gradient";
+import { LinearGradient } from "expo-linear-gradient"
 
 const AuthScreen = () => {
   return (
@@ -67,9 +67,9 @@ const AuthScreen = () => {
         </Text>
       </View>
     </View>
-  );
-};
-export default AuthScreen;
+  )
+}
+export default AuthScreen
 
 const styles = StyleSheet.create({
   container: {
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   underlinedText: {
-    fontWeight: "bold",
+    // fontWeight: "bold",
     fontStyle: "normal",
   },
-});
+})

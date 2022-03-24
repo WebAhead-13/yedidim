@@ -1,7 +1,8 @@
-import { StyleSheet, Image } from "react-native";
-import { Dimensions } from "react-native";
-import EditScreenInfo from "../components/EditScreenInfo";
-import { Text, View } from "../components/Themed";
+import { StyleSheet, Image } from "react-native"
+import { Dimensions } from "react-native"
+import EditScreenInfo from "../components/EditScreenInfo"
+import { Text, View } from "../components/Themed"
+import { MyModal } from "../components/EndEventModal"
 
 export default function EventsPage() {
   return (
@@ -9,7 +10,11 @@ export default function EventsPage() {
       <Text style={styles.title}>שם משתמש</Text>
       <View style={styles.events}>
         <View style={styles.allevents}>
-          <Image source={require("../assets/images/myEvents2.svg")} style={styles.alleventsimage} resizeMode="cover" />
+          <Image
+            source={require("../assets/images/myEvents2.svg")}
+            style={styles.alleventsimage}
+            resizeMode="cover"
+          />
           <Text style={styles.alleventsnum}>226</Text>
           <Text style={styles.alleventstext}>סה״כ אירועים</Text>
         </View>
@@ -25,22 +30,34 @@ export default function EventsPage() {
       </View>
       <View style={styles.events2}>
         <View style={styles.event}>
-          <Image source={require("../assets/images/cables7.svg")} style={styles.eventimage}></Image>
+          <Image
+            source={require("../assets/images/cables7.svg")}
+            style={styles.eventimage}
+          ></Image>
           <Text style={styles.eventnum}>33</Text>
           <Text style={styles.eventtext}>הנעה</Text>
         </View>
         <View style={styles.event}>
-          <Image source={require("../assets/images/flatTire4.svg")} style={styles.eventimage}></Image>
+          <Image
+            source={require("../assets/images/flatTire4.svg")}
+            style={styles.eventimage}
+          ></Image>
           <Text style={styles.eventnum}>4</Text>
           <Text style={styles.eventtext}>פנצ׳ר</Text>
         </View>
         <View style={styles.event}>
-          <Image source={require("../assets/images/oil.svg")} style={styles.eventimage}></Image>
+          <Image
+            source={require("../assets/images/oil.svg")}
+            style={styles.eventimage}
+          ></Image>
           <Text style={styles.eventnum}>2</Text>
           <Text style={styles.eventtext}>שמן-דלק מים</Text>
         </View>
         <View style={styles.event}>
-          <Image source={require("../assets/images/other.svg")} style={styles.eventimage}></Image>
+          <Image
+            source={require("../assets/images/other.svg")}
+            style={styles.eventimage}
+          ></Image>
           <Text style={styles.eventnum}>1</Text>
           <Text style={styles.eventtext}>אחר</Text>
         </View>
@@ -49,21 +66,34 @@ export default function EventsPage() {
         <Text style={styles.footerTitle}>שיתוף באמצעות</Text>
         <View style={styles.socialContainer}>
           <View style={styles.socialMedia}>
-            <Image source={require("../assets/images/whatsapp.svg")} style={styles.socialIcon} resizeMode="contain" />
+            <Image
+              source={require("../assets/images/whatsapp.svg")}
+              style={styles.socialIcon}
+              resizeMode="contain"
+            />
             <Text style={styles.socialMediaName}>Whatsapp</Text>
           </View>
           <View style={styles.socialMedia}>
-            <Image source={require("../assets/images/facebook.svg")} style={styles.socialIcon} resizeMode="contain" />
+            <Image
+              source={require("../assets/images/facebook.svg")}
+              style={styles.socialIcon}
+              resizeMode="contain"
+            />
             <Text style={styles.socialMediaName}>Facebook</Text>
           </View>
           <View style={styles.socialMedia}>
-            <Image source={require("../assets/images/telegram.svg")} style={styles.socialIcon} resizeMode="contain" />
+            <Image
+              source={require("../assets/images/telegram.svg")}
+              style={styles.socialIcon}
+              resizeMode="contain"
+            />
             <Text style={styles.socialMediaName}>Telegram</Text>
           </View>
         </View>
       </View>
+      {/* <MyModal /> */}
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -218,4 +248,4 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: "rgba(0, 0, 0, 0.54)",
   },
-});
+})

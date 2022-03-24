@@ -1,7 +1,6 @@
-import React from "react";
-import { Text, StyleSheet, View, Image, ButtonProps } from "react-native";
-import UselessTextInput from "../components/UselessTextInput";
-import { TextInput, Button } from "react-native-paper";
+import React from "react"
+import { Text, StyleSheet, View, Image, ButtonProps } from "react-native"
+import { TextInput, Button } from "react-native-paper"
 import {
   ImageBackground,
   Dimensions,
@@ -10,18 +9,18 @@ import {
   Animated,
   Platform,
   TouchableWithoutFeedback,
-} from "react-native";
-import { SendIntentExtras } from "expo-linking";
+} from "react-native"
+import { SendIntentExtras } from "expo-linking"
 type Props = {
-  onChangeText: (val: string) => void;
-  text?: string;
-};
-import { LinearGradient } from "expo-linear-gradient";
+  onChangeText: (val: string) => void
+  text?: string
+}
+import { LinearGradient } from "expo-linear-gradient"
 
 const Login = () => {
-  const [text, setText] = React.useState("");
-  const [number, onChangeNumber] = React.useState(null);
-  const onChangeText = (text: string) => setText(text);
+  const [text, setText] = React.useState("")
+  const [number, onChangeNumber] = React.useState(null)
+  const onChangeText = (text: string) => setText(text)
   return (
     <View style={styles.container}>
       <LinearGradient
@@ -53,7 +52,7 @@ const Login = () => {
             placeholder="מספר נייד"
             autoComplete={Number}
             keyboardType="numeric"
-            style={styles.sms}
+            style={styles.textInput}
             theme={{ roundness: 49 }}
             left={
               <TextInput.Icon
@@ -62,8 +61,9 @@ const Login = () => {
                     source={require("../assets/images/phone_iphone.svg")}
                     resizeMode="cover"
                     style={{
-                      width: 20,
-                      height: 20,
+                      width: 15,
+                      height: 22,
+                      marginTop: 10,
                     }}
                   />
                 )}
@@ -75,7 +75,7 @@ const Login = () => {
             placeholder="תעודת זהות"
             autoComplete={null}
             value={text}
-            style={styles.sms}
+            style={styles.textInput}
             theme={{ roundness: 49 }}
             left={
               <TextInput.Icon
@@ -84,8 +84,9 @@ const Login = () => {
                     source={require("../assets/images/Vector.svg")}
                     resizeMode="cover"
                     style={{
-                      width: 20,
-                      height: 20,
+                      width: 15,
+                      height: 22,
+                      marginTop: 10,
                     }}
                   />
                 )}
@@ -108,13 +109,13 @@ const Login = () => {
             </TouchableOpacity>
           </LinearGradient>
           <Text style={styles.smsText}>
-            עדיין לא התחברת ?<Text style={styles.underlinedText}>הרשמה</Text>
+            עדיין לא מתנדב ?<Text style={styles.underlinedText}>הרשמה</Text>
           </Text>
         </View>
       </View>
     </View>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   inputContainer: {
     padding: 20,
@@ -123,7 +124,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 40,
     marginTop: "auto",
     height: Dimensions.get("window").height * 0.75,
-    paddingTop: 50,
+    paddingTop: 20,
     position: "relative",
   },
   main: {
@@ -135,7 +136,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 50,
     borderBottomRightRadius: 50,
     paddingRight: 20,
-    borderBottom: 0,
+    // borderBottom: 0,
   },
   a: {
     left: "18.93%",
@@ -144,7 +145,6 @@ const styles = StyleSheet.create({
     bottom: "46.55%",
     fontFamily: "Assistant",
     fontStyle: "normal",
-    fontWeight: 700,
     fontSize: 15,
     lineHeight: 20,
     tintColor: "#336CA0",
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 50,
     borderBottomRightRadius: 50,
     paddingRight: 20,
-    borderBottom: 0,
+    // borderBottom: 0,
     borderRadius: 20,
   },
   themeButtonTitle: {
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
   },
   underlinedText: {
-    fontWeight: "bold",
+    // fontWeight: "bold",
     fontStyle: "normal",
     textDecorationLine: "underline",
   },
@@ -187,14 +187,16 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: "#336CA0",
     marginTop: 25,
+    marginBottom: 100,
   },
-  sms: {
+  textInput: {
     position: "relative",
     textAlign: "left",
     fontSize: 15,
     color: "#336CA0",
     marginTop: 25,
     borderTopEndRadius: 20,
+    height: 40,
   },
   logo: {
     width: 81,
@@ -245,5 +247,5 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
-});
-export default Login;
+})
+export default Login

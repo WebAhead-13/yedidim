@@ -1,10 +1,9 @@
-import * as WebBrowser from "expo-web-browser";
-import React from "react";
-import { StyleSheet, TouchableOpacity, SafeAreaView } from "react-native";
-import Colors from "../constants/Colors";
-import { MonoText } from "./UselessTextInput";
-import { Text, View } from "./Themed";
-import { TextInput } from "react-native-paper";
+import * as WebBrowser from "expo-web-browser"
+import React from "react"
+import { StyleSheet, TouchableOpacity, SafeAreaView } from "react-native"
+import Colors from "../constants/Colors"
+import { Text, View } from "./Themed"
+import { TextInput } from "react-native-paper"
 const EditScreenInfo = () => {
   return (
     <View>
@@ -32,13 +31,13 @@ const EditScreenInfo = () => {
         </TouchableOpacity>
       </View>
     </View>
-  );
-};
+  )
+}
 
 function handleHelpPress() {
   WebBrowser.openBrowserAsync(
     "https://docs.expo.io/get-started/create-a-new-app/#opening-the-app-on-your-phonetablet"
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -53,7 +52,7 @@ const styles = StyleSheet.create({
     height: "47",
     left: "18",
     top: "312",
-    background: "rgba(255, 255, 255, 0.5)",
+    // background: "rgba(255, 255, 255, 0.5)",
     border: "1px solid #336CA0",
     boxSizing: "borderbox",
     // borderRadius: '49px',
@@ -81,7 +80,7 @@ const styles = StyleSheet.create({
   helpLinkText: {
     textAlign: "center",
   },
-});
+})
 
 // const styles = StyleSheet.create({
 //   input: {
@@ -112,11 +111,10 @@ const styles1 = StyleSheet.create({
     height: "47px",
     left: "18px",
     top: "383px",
-    background: "rgba(255, 255, 255, 0.5)",
+    // background: "rgba(255, 255, 255, 0.5)",
     border: "1px solid #336CA0",
     boxsizing: "border-box",
   },
-});
+})
 
-// export default UselessTextInput;
-export default EditScreenInfo;
+export default EditScreenInfo
