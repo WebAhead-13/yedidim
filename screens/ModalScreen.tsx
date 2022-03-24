@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { Platform, StyleSheet, Dimensions } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
 import { Text, View } from "../components/Themed";
 import { Pressable } from "react-native";
 import { Modal } from "react-native-paper";
 
 import MapView from "react-native-maps";
-import { white } from "react-native-paper/lib/typescript/styles/colors";
 
 import EventInfo from "../components/EventInfo";
 import Contact from "../components/Contact";
@@ -39,25 +37,25 @@ export default function ModalScreen() {
       <View style={styles.bottom}>
         <EventInfo data={data} />
         <Text style={styles.arrivalTime}> זמן הגעה משוער לאירוע: 35 דק </Text>
-        <Pressable onPress={toggleModal} style={styles.takeButton}>
-          <Text style={styles.takeButtonText}>לקחת את האירוע</Text>
-        </Pressable>
+        <View style={styles.buttonContainer}>
+          <Pressable onPress={toggleModal} style={styles.takeButton}>
+            <Text style={styles.takeButtonText}>לקחת את האירוע</Text>
+          </Pressable>
 
-        <Pressable style={styles.backButton}>
-          <Text style={styles.backButtonText}>חזור</Text>
-        </Pressable>
+          <Pressable style={styles.backButton}>
+            <Text style={styles.backButtonText}>חזור</Text>
+          </Pressable>
+        </View>
       </View>
 
       <Modal style={styles.activeEventModal} visible={isModalVisible}>
-        <View style={styles.modalContainer}>
-          <Text style={styles.eventDetails}>פרטי פנייה</Text>
-          <EventInfo data={data} />
-          <Waze />
-          <Contact />
-          <Pressable
-            onPress={toggleModal}
-            style={[styles.takeButton, styles.confirmButton]}
-          >
+        <Text style={styles.eventDetails}>פרטי פנייה</Text>
+        <EventInfo data={data} />
+        <Waze />
+        <Contact />
+
+        <View style={styles.buttonContainer}>
+          <Pressable onPress={toggleModal} style={styles.takeButton}>
             <Text style={styles.takeButtonText}> לסיים אירוע</Text>
           </Pressable>
 
@@ -67,19 +65,15 @@ export default function ModalScreen() {
           >
             <Text style={styles.cancleButtonText}>ביטול אירוע</Text>
           </Pressable>
-          <Text style={styles.bottomText}>התקשרות למוקד</Text>
         </View>
+        <Text style={styles.bottomText}>התקשרות למוקד</Text>
       </Modal>
-      {/* <Text style={styles.title}>Modal</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/ModalScreen.tsx" /> */}
 
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -97,51 +91,39 @@ const styles = StyleSheet.create({
   },
   map: {
     width: Dimensions.get("window").width,
-    height: 520,
-    position: "absolute",
-    top: -78,
+    height: Dimensions.get("window").height - 64,
   },
   bottom: {
-    position: "absolute",
     width: Dimensions.get("window").width,
-    height: 380,
-    top: 440,
+    position: "absolute",
+    bottom: 0,
+    boxShadow: "0px -2px 5px #ddd",
     paddingTop: 10,
+    paddingBottom: 40,
     backgroundColor: "white",
   },
-
   arrivalTime: {
     color: "rgba(33, 60, 79, 1)",
-    fontStyle: "normal",
     fontWeight: "600",
     fontSize: 18,
     lineHeight: 19,
-    letterSpacing: 0.1,
-    alignSelf: "flex-end",
-    textAlign: "center",
+    alignSelf: "center",
     marginTop: 15,
-
-    position: "absolute",
-    left: " 0%",
-    right: "0%",
-    top: "37%",
-    // bottom: " 59.47%",
   },
-  takeButton: {
+  buttonContainer: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-evenly",
     alignItems: "center",
-    // padding: 10px 32px 14px;
-    position: "absolute",
-    width: 221,
+    marginTop: 30,
+  },
+  takeButton: {
+    width: "60%",
     height: 44,
-    left: 10,
-    top: 230,
-
-    /* Gradient-8 */
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     backgroundColor: "green",
-    // background: "linear-gradient(90deg, #3A8844 0%, #75BE75 100%)",
     borderRadius: 35,
   },
   takeButtonText: {
@@ -158,11 +140,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderStyle: "solid",
     borderColor: "rgba(51, 108, 160, 1)",
-    position: "absolute",
-    width: 106,
+    width: "20%",
     height: 44,
-    right: 16,
-    top: 230,
     borderRadius: 35,
   },
   backButtonText: {
@@ -172,20 +151,11 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   activeEventModal: {
-    position: "absolute",
     width: Dimensions.get("window").width,
-    height: 613,
-    top: 130,
-    left: 0,
+    height: Dimensions.get("window").height * 0.6,
     backgroundColor: "white",
-  },
-
-  modalContainer: {
     position: "absolute",
-    display: "flex",
-    flexDirection: "column",
-    width: "100%",
-    height: 613,
+    top: Dimensions.get("window").height * 0.4,
   },
   eventDetails: {
     fontStyle: "normal",
@@ -199,10 +169,6 @@ const styles = StyleSheet.create({
   },
   cancleButton: {
     borderColor: "rgba(239, 87, 89, 1)",
-    top: 480,
-  },
-  confirmButton: {
-    top: 480,
   },
   cancleButtonText: {
     color: "rgba(239, 87, 89, 1)",
@@ -210,13 +176,10 @@ const styles = StyleSheet.create({
   bottomText: {
     margin: "auto",
     borderStyle: "solid",
-    position: "absolute",
     width: Dimensions.get("window").width,
     textAlign: "center",
-
     height: 44,
-    right: 0,
-    top: 545,
+    marginTop: 40,
     color: "rgba(51, 108, 160, 1)",
     fontWeight: "600",
     fontSize: 15,

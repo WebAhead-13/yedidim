@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Text, View } from "../components/Themed";
-import { Platform, StyleSheet, Image } from "react-native";
+import { StyleSheet, Image } from "react-native";
 const Waze = () => {
   return (
     <View style={styles.container}>
@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     fontSize: 18,
     lineHeight: 19,
-    /* or 106% */
 
     textAlign: "right",
 
@@ -48,10 +47,8 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     fontSize: 12,
     lineHeight: 20,
-    /* or 106% */
 
     textAlign: "right",
-
     color: "black",
     marginLeft: 5,
   },
