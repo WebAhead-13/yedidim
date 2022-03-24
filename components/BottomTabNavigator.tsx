@@ -63,7 +63,7 @@ function BottomTabNavigator() {
         name="TabTwo"
         component={TabTwoScreen}
         options={{
-          title: "Tab Two",
+          title: "אירועים (נלקחו)",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
