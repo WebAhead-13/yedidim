@@ -1,12 +1,12 @@
-import { StyleSheet, Text, View, Dimensions, Image } from "react-native";
-import React from "react";
-import MapView from "react-native-maps";
-import { Marker, Callout } from "react-native-maps";
-import { RootTabScreenProps } from "../types";
-import { List } from "react-native-paper";
+import { StyleSheet, Text, View, Dimensions, Image } from "react-native"
+import React from "react"
+import MapView from "react-native-maps"
+import { Marker, Callout } from "react-native-maps"
+import { RootTabScreenProps } from "../types"
+import { List } from "react-native-paper"
 
-import * as Location from "expo-location";
-import { Item } from "react-native-paper/lib/typescript/components/List/List";
+import * as Location from "expo-location"
+import { Item } from "react-native-paper/lib/typescript/components/List/List"
 
 const data = [
   {
@@ -143,46 +143,34 @@ const data = [
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
     time: `לפני 17 דק'`,
-    icon: require("../assets/images/flat.svg"),
+    icon: require("../assets/images/eventsIcon/flatTire.png"),
     mapMarker: require("../assets/images/Frame_24.png"),
   },
-];
-
-const marker = {
-  latitude: 31.767698691442526,
-  longitude: 35.20659851280579,
-  latitudeDelta: 0.01,
-  longitudeDelta: 0.01,
-};
+]
 
 export default function MainEventMap() {
-  const currentTime = new Date();
-
   const [location, setLocation] =
-    React.useState<Location.LocationObject | null>(null);
-  const [errorMsg, setErrorMsg] = React.useState<string | null>(null);
-  const [isToolTip, setIsToolTip] = React.useState<boolean>(false);
+    React.useState<Location.LocationObject | null>(null)
+  const [errorMsg, setErrorMsg] = React.useState<string | null>(null)
 
   React.useEffect(() => {
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
+    ;(async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync()
       if (status !== "granted") {
-        setErrorMsg("Permission to access location was denied");
-        return;
+        setErrorMsg("Permission to access location was denied")
+        return
       }
 
-      let loc = await Location.getCurrentPositionAsync({});
-      setLocation(loc);
-    })();
-  }, []);
+      let loc = await Location.getCurrentPositionAsync({})
+      setLocation(loc)
+    })()
+  }, [])
 
-  let text = "Waiting..";
+  let text = "Waiting.."
   if (errorMsg) {
-    text = errorMsg;
+    text = errorMsg
   } else if (location) {
-    text = JSON.stringify(location);
-    // console.log(location);
-    // console.log(text);
+    text = JSON.stringify(location)
   }
 
   if (!location?.coords)
@@ -190,52 +178,36 @@ export default function MainEventMap() {
       <View style={styles.loading}>
         <Text>Loading ...</Text>
       </View>
-    );
+    )
 
   const myLocation = {
     latitude: location.coords.latitude,
     longitude: location.coords.longitude,
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
-  };
+  }
 
   return (
     <MapView style={styles.map} initialRegion={myLocation}>
       {data.map((x) => {
         return (
-          <Marker
-            coordinate={x}
-            key={x.id}
-            // title={x.eventType}
-            // description={x.carType}
-            image={x.mapMarker}
-            // style={{ width: 45, height: 45 }}
-          >
+          <Marker coordinate={x} key={x.id} image={x.mapMarker}>
             <Callout tooltip={true}>
-              {/* <View style={styles.x}>
-                <Image
-                  source={require("../assets/images/flatTire4.png")}
-                  style={{
-                    width: 20,
-                    height: 20,
-                  }}
-                />
-                <View>
-                  <Text style={styles.title}>{x.eventType}</Text>
-                  <Text>
-                    {x.isPrivateCar ? `${x.carType} (פרטי)` : x.carType}
-                  </Text>
-                  <Text> {x.address}</Text>
-                  <Text>{x.time}</Text>
-                </View>
-              </View> */}
               <List.Item
                 title=""
-                titleStyle={styles.z}
+                titleStyle={styles.removeTitle}
                 descriptionNumberOfLines={2}
                 descriptionStyle={styles.description}
                 description={
                   <View>
+                    {/* <Image
+                      source={require("../assets/images/eventsIcon/flatTire.png")}
+                      style={{
+                        width: 30,
+                        height: 30,
+                      }}
+                      resizeMode="contain"
+                    /> */}
                     <Text style={styles.title}>{x.eventType}</Text>
                     <Text>
                       {x.isPrivateCar ? `${x.carType} (פרטי)` : x.carType}
@@ -252,15 +224,15 @@ export default function MainEventMap() {
                   />
                 )}
                 right={(_props) => <Text style={styles.right}>{x.time}</Text>}
-                style={styles.x}
+                style={styles.callout}
               />
             </Callout>
           </Marker>
-        );
+        )
       })}
       <Marker coordinate={myLocation} pinColor="#48b4e0" />
     </MapView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -274,14 +246,12 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
-  x: {
+  callout: {
     backgroundColor: "white",
     height: 99,
     borderRadius: 12,
     marginVertical: 5,
-    // width: 400,
     marginHorizontal: 5,
-    // flexDirection: "row",
   },
   title: {
     color: "black",
@@ -304,8 +274,8 @@ const styles = StyleSheet.create({
     width: 20,
     color: "blue",
   },
-  z: {
+  removeTitle: {
     width: 0,
     height: 0,
   },
-});
+})

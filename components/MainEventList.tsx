@@ -1,8 +1,7 @@
-import { StyleSheet, Text, View, FlatList, Image } from "react-native";
-import { List } from "react-native-paper";
-import { RootTabScreenProps } from "../types";
+import { StyleSheet, Text, View, FlatList, Image } from "react-native"
+import { List } from "react-native-paper"
 
-import React from "react";
+import React from "react"
 
 const data = [
   {
@@ -17,7 +16,7 @@ const data = [
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
     time: `לפני 17 דק'`,
-    icon: require("../assets/images/Frame_17.png"),
+    icon: require("../assets/images/eventsIcon/flatTire.png"),
   },
   {
     id: "1",
@@ -31,7 +30,7 @@ const data = [
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
     time: `לפני 17 דק'`,
-    icon: require("../assets/images/oil-water.png"),
+    icon: require("../assets/images/eventsIcon/oil.png"),
     color: "#C25C9E",
   },
   {
@@ -46,7 +45,7 @@ const data = [
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
     time: `לפני 17 דק'`,
-    icon: require("../assets/images/rescue.png"),
+    icon: require("../assets/images/eventsIcon/rescue.png"),
   },
   {
     id: "3",
@@ -60,7 +59,7 @@ const data = [
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
     time: `לפני 17 דק'`,
-    icon: require("../assets/images/push-cabel.png"),
+    icon: require("../assets/images/eventsIcon/battery.png"),
     color: "#F9B350",
   },
   {
@@ -75,7 +74,7 @@ const data = [
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
     time: `לפני 17 דק'`,
-    icon: require("../assets/images/Frame_17.png"),
+    icon: require("../assets/images/eventsIcon/flatTire.png"),
   },
   {
     id: "5",
@@ -89,7 +88,7 @@ const data = [
     time: `לפני 17 דק'`,
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
-    icon: require("../assets/images/Frame_17.png"),
+    icon: require("../assets/images/eventsIcon/flatTire.png"),
   },
   {
     id: "6",
@@ -103,7 +102,7 @@ const data = [
     time: `לפני 17 דק'`,
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
-    icon: require("../assets/images/Frame_17.png"),
+    icon: require("../assets/images/eventsIcon/flatTire.png"),
   },
   {
     id: "7",
@@ -117,7 +116,7 @@ const data = [
     time: `לפני 17 דק'`,
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
-    icon: require("../assets/images/Frame_17.png"),
+    icon: require("../assets/images/eventsIcon/flatTire.png"),
   },
   {
     id: "8",
@@ -131,12 +130,12 @@ const data = [
     time: `לפני 17 דק'`,
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
-    icon: require("../assets/images/flat.svg"),
+    icon: require("../assets/images/eventsIcon/flatTire.png"),
   },
-];
+]
 
 export default function MainEventList() {
-  const currentTime = new Date();
+  const currentTime = new Date()
 
   return (
     <FlatList
@@ -157,7 +156,9 @@ export default function MainEventList() {
                 <Text>
                   {item.isPrivateCar ? `${item.carType} (פרטי)` : item.carType}
                 </Text>
-                <Text style={{ color: "#336CA0" }}> {item.address}</Text>
+                <Text style={{ color: "#336CA0", marginTop: 10 }}>
+                  {item.address}
+                </Text>
               </View>
             }
             left={(props) => (
@@ -171,22 +172,29 @@ export default function MainEventList() {
             right={(_props) => <Text style={styles.right}>{item.time}</Text>}
             style={styles.item}
           />
-        );
+        )
       }}
     />
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   flatList: {
-    marginTop: 10,
+    paddingTop: 10,
+    backgroundColor: "white",
   },
   item: {
     backgroundColor: "white",
     height: 99,
     borderRadius: 12,
     marginVertical: 5,
-    marginHorizontal: 5,
+    marginHorizontal: 8,
+    paddingEnd: 20,
+    paddingStart: 10,
+    elevation: 2,
+    shadowColor: "black",
+    shadowRadius: 2,
+    shadowOpacity: 0.2,
   },
   title: {
     marginHorizontal: 1,
@@ -206,7 +214,17 @@ const styles = StyleSheet.create({
     color: "#336CA0",
   },
   icon: {
-    width: 20,
+    borderRadius: 200,
+    elevation: 1,
+    backgroundColor: "transparent",
+    borderColor: "white",
+    borderWidth: 20,
+    shadowColor: "black",
+    shadowRadius: 2,
+    shadowOpacity: 3,
+    width: 30,
+    height: 30,
+
     // color: "blue",
   },
-});
+})

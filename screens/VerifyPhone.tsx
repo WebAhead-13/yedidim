@@ -29,7 +29,7 @@ const VerifyPhone = () => {
       >
         <Image
           style={styles.logo}
-          source={require("../assets/images/Yedidimlogo.png")}
+          source={require("../assets/images/logo.png")}
           resizeMode="contain"
         />
       </LinearGradient>

@@ -54,28 +54,6 @@ export default function TabTwoScreen() {
       time: "14:54",
       helper: "ריהאם",
     },
-    {
-      eventType: "פנצ׳ר",
-      carType: "סיטוראן ברלינגו",
-      isPrivateCar: true,
-      address: "דרך כרמל 63",
-      city: "ירושלים",
-      lat: "",
-      lng: "",
-      time: "14:54",
-      helper: "ריהאם",
-    },
-    {
-      eventType: "פנצ׳ר",
-      carType: "סיטוראן ברלינגו",
-      isPrivateCar: true,
-      address: "דרך כרמל 63",
-      city: "ירושלים",
-      lat: "",
-      lng: "",
-      time: "14:54",
-      helper: "ריהאם",
-    },
   ]
   return (
     <View style={styles.container}>
@@ -93,19 +71,18 @@ export default function TabTwoScreen() {
                 marginTop: 8,
                 marginBottom: 8,
                 width: Dimensions.get("window").width * 0.95,
-                shadowColor: "rgba(0, 0, 0, 0.075)",
-                shadowOffset: { width: 8, height: 4 },
-                shadowOpacity: 3,
-                shadowRadius: 12,
+                shadowColor: "black",
                 borderRadius: 12,
+                shadowRadius: 2,
+                shadowOpacity: 0.2,
+                elevation: 2,
                 padding: 4,
               }}
             >
               <View>
                 <Image
-                  // style={styles.imageStyle}
                   style={{ width: 40, height: 40, marginTop: 7 }}
-                  source={require("../assets/images/Frame17.png")}
+                  source={require("../assets/images/eventsIcon/flatTire.png")}
                 />
               </View>
               <View
@@ -149,17 +126,13 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-
     height: Dimensions.get("window").height,
     paddingTop: 15,
-
-    // backgroundColor: "blue",
   },
   title: {
     fontSize: 18,
     fontWeight: "bold",
   },
-
   typeStyle: {
     fontSize: 15,
     lineHeight: 20,
@@ -167,10 +140,8 @@ const styles = StyleSheet.create({
     color: "#213C4F",
     marginBottom: 8,
   },
-
   addressStyle: {
     fontSize: 13,
-    // letterSpacing: 0.1,
     color: "#336CA0",
     marginBottom: 6,
   },

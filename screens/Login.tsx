@@ -38,7 +38,7 @@ const Login = () => {
         <Image
           style={styles.logo}
           resizeMode="contain"
-          source={require("../assets/images/Yedidimlogo.png")}
+          source={require("../assets/images/logo.png")}
         />
       </LinearGradient>
       <View style={styles.subContainer}>

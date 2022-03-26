@@ -4,29 +4,29 @@ import {
   Dimensions,
   TouchableOpacity,
   Image,
-} from "react-native";
-import { Text, View } from "../components/Themed";
-import { RootTabScreenProps } from "../types";
-import MainEventList from "../components/MainEventList";
-import React from "react";
-import MainEventMap from "../components/MainEventMap";
-import axios from "axios";
+} from "react-native"
+import { Text, View } from "../components/Themed"
+import { RootTabScreenProps } from "../types"
+import MainEventList from "../components/MainEventList"
+import React from "react"
+import MainEventMap from "../components/MainEventMap"
+import axios from "axios"
 
 export default function TabOneScreen({
   navigation,
-}: RootTabScreenProps<"TabOne">) {
-  const [isMap, setISMap] = React.useState(false);
+}: RootTabScreenProps<"MainEventsScreen">) {
+  const [isMap, setISMap] = React.useState(false)
 
   React.useEffect(() => {
     axios
       .get("http://localhost:4000/api/events")
       .then(function (response) {
-        console.log(response.data[0]);
+        console.log(response.data[0])
       })
       .catch(function (err) {
-        console.log(err);
-      });
-  }, []);
+        console.log(err)
+      })
+  }, [])
   return (
     <SafeAreaView
       style={{ position: "relative", height: Dimensions.get("window").height }}
@@ -50,7 +50,7 @@ export default function TabOneScreen({
         </Text>
       </TouchableOpacity>
     </SafeAreaView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -70,4 +70,4 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     fontSize: 15,
   },
-});
+})

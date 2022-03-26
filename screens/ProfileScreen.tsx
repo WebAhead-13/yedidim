@@ -26,7 +26,7 @@ export default function ProfileScreen({ navigation }: any) {
               <Image
                 style={{ width: "100%", height: "100%" }}
                 resizeMode="contain"
-                source={require("../assets/images/userPhoto.svg")}
+                source={require("../assets/images/userPhoto.png")}
               />
             </View>
             <View>
@@ -38,7 +38,7 @@ export default function ProfileScreen({ navigation }: any) {
             <Image
               style={{ width: "100%", height: "100%" }}
               resizeMode="contain"
-              source={require("../assets/images/YedidimLogo.jpg")}
+              source={require("../assets/images/logo.png")}
             />
           </View>
         </View>
