@@ -2,7 +2,9 @@ import * as React from "react"
 import { Pressable } from "react-native"
 import TakenEvents from "../screens/TakenEvents"
 import ProfileScreen from "../screens/ProfileScreen"
+import MyEventsScreen from "../screens/MyEventsScreen"
 import useColorScheme from "../hooks/useColorScheme"
+import MainEventsScreen from "../screens/MainEventsScreen"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { RootTabParamList, RootTabScreenProps } from "../types"
 import { FontAwesome } from "@expo/vector-icons"
@@ -27,15 +29,18 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="MainEventsPage"
+      initialRouteName="MainEventsScreen"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
+        headerTitleStyle: {
+          color: "white",
+        },
       }}
     >
       <BottomTab.Screen
-        name="MainEventsPage"
-        component={EventsPage}
-        options={({ navigation }: RootTabScreenProps<"MainEventsPage">) => ({
+        name="MainEventsScreen"
+        component={MainEventsScreen}
+        options={({ navigation }: RootTabScreenProps<"MainEventsScreen">) => ({
           title: "אירועים",
           ...commonOptions,
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
@@ -68,8 +73,8 @@ function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="EventPageScreen"
-        component={ProfileScreen}
+        name="MyEventsScreen"
+        component={MyEventsScreen}
         options={{
           title: "אירועים שלי",
           ...commonOptions,

@@ -22,9 +22,9 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
   NativeStackScreenProps<RootStackParamList, Screen>
 
 export type RootTabParamList = {
-  MainEventsPage: undefined
+  MainEventsScreen: undefined
   TakenEvents: undefined
-  EventPageScreen: undefined
+  MyEventsScreen: undefined
   ProfileScreen: undefined
   Login: undefined
 }

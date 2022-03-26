@@ -3,7 +3,6 @@ import { SafeAreaProvider } from "react-native-safe-area-context"
 import { I18nManager } from "react-native"
 
 import useCachedResources from "./hooks/useCachedResources"
-import useColorScheme from "./hooks/useColorScheme"
 import Navigation from "./navigation"
 import { useEffect } from "react"
 import { DefaultTheme, Provider as PaperProvider } from "react-native-paper"
@@ -20,7 +19,6 @@ import AppLoading from "expo-app-loading"
 
 export default function App() {
   const isLoadingComplete = useCachedResources()
-  const colorScheme = useColorScheme()
   let [fontsLoaded] = useFonts({
     Assistant_400Regular,
     Assistant_700Bold,
