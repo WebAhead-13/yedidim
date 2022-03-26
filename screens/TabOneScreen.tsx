@@ -10,12 +10,23 @@ import { RootTabScreenProps } from "../types";
 import MainEventList from "../components/MainEventList";
 import React from "react";
 import MainEventMap from "../components/MainEventMap";
+import axios from "axios";
 
 export default function TabOneScreen({
   navigation,
 }: RootTabScreenProps<"TabOne">) {
-  const currentTime = new Date();
   const [isMap, setISMap] = React.useState(false);
+
+  React.useEffect(() => {
+    axios
+      .get("http://localhost:4000/api/events")
+      .then(function (response) {
+        console.log(response.data[0]);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  }, []);
   return (
     <SafeAreaView
       style={{ position: "relative", height: Dimensions.get("window").height }}
@@ -53,8 +64,6 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0, 0, 0, 0.66)",
     paddingHorizontal: 20,
     height: 50,
-    // paddingBottom: 20,
-    // flex: 1,
     display: "flex",
     flexDirection: "row",
     alignItems: "center",

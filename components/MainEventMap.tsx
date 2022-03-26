@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Dimensions } from "react-native";
+import { StyleSheet, Text, View, Dimensions, Image } from "react-native";
 import React from "react";
 import MapView from "react-native-maps";
 import { Marker, Callout } from "react-native-maps";
@@ -6,6 +6,7 @@ import { RootTabScreenProps } from "../types";
 import { List } from "react-native-paper";
 
 import * as Location from "expo-location";
+import { Item } from "react-native-paper/lib/typescript/components/List/List";
 
 const data = [
   {
@@ -20,7 +21,8 @@ const data = [
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
     time: `לפני 17 דק'`,
-    icon: require("../assets/images/flat tire4flateTire.svg"),
+    icon: require("../assets/images/flatTire4.png"),
+    mapMarker: require("../assets/images/Frame_24.png"),
   },
   {
     id: "1",
@@ -34,7 +36,8 @@ const data = [
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
     time: `לפני 17 דק'`,
-    icon: require("../assets/images/flat tire4flateTire.svg"),
+    icon: require("../assets/images/flatTire4.png"),
+    mapMarker: require("../assets/images/map_icon.png"),
   },
   {
     id: "2",
@@ -49,7 +52,8 @@ const data = [
     longitudeDelta: 0.01,
     time: `לפני 17 דק'`,
 
-    icon: require("../assets/images/flat tire4flateTire.svg"),
+    icon: require("../assets/images/flatTire4.png"),
+    mapMarker: require("../assets/images/other_3.png"),
   },
   {
     id: "3",
@@ -64,7 +68,8 @@ const data = [
     longitudeDelta: 0.01,
     time: `לפני 17 דק'`,
 
-    icon: require("../assets/images/flat tire4flateTire.svg"),
+    icon: require("../assets/images/flatTire4.png"),
+    mapMarker: require("../assets/images/map_icon.png"),
   },
   {
     id: "4",
@@ -78,7 +83,8 @@ const data = [
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
     time: `לפני 17 דק'`,
-    icon: require("../assets/images/flat tire4flateTire.svg"),
+    icon: require("../assets/images/flatTire4.png"),
+    mapMarker: require("../assets/images/Frame_24.png"),
   },
   {
     id: "5",
@@ -92,7 +98,8 @@ const data = [
     time: `לפני 17 דק'`,
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
-    icon: require("../assets/images/flat tire4flateTire.svg"),
+    icon: require("../assets/images/flatTire4.png"),
+    mapMarker: require("../assets/images/Frame_24.png"),
   },
   {
     id: "6",
@@ -106,7 +113,8 @@ const data = [
     time: `לפני 17 דק'`,
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
-    icon: require("../assets/images/flat tire4flateTire.svg"),
+    icon: require("../assets/images/flatTire4.png"),
+    mapMarker: require("../assets/images/Frame_24.png"),
   },
   {
     id: "7",
@@ -120,7 +128,8 @@ const data = [
     time: `לפני 17 דק'`,
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
-    icon: require("../assets/images/flat tire4flateTire.svg"),
+    icon: require("../assets/images/flatTire4.png"),
+    mapMarker: require("../assets/images/Frame_24.png"),
   },
   {
     id: "8",
@@ -134,7 +143,8 @@ const data = [
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
     time: `לפני 17 דק'`,
-    icon: require("../assets/images/flat tire4flateTire.svg"),
+    icon: require("../assets/images/flat.svg"),
+    mapMarker: require("../assets/images/Frame_24.png"),
   },
 ];
 
@@ -171,8 +181,8 @@ export default function MainEventMap() {
     text = errorMsg;
   } else if (location) {
     text = JSON.stringify(location);
-    console.log(location);
-    console.log(text);
+    // console.log(location);
+    // console.log(text);
   }
 
   if (!location?.coords)
@@ -198,8 +208,27 @@ export default function MainEventMap() {
             key={x.id}
             // title={x.eventType}
             // description={x.carType}
+            image={x.mapMarker}
+            // style={{ width: 45, height: 45 }}
           >
             <Callout tooltip={true}>
+              {/* <View style={styles.x}>
+                <Image
+                  source={require("../assets/images/flatTire4.png")}
+                  style={{
+                    width: 20,
+                    height: 20,
+                  }}
+                />
+                <View>
+                  <Text style={styles.title}>{x.eventType}</Text>
+                  <Text>
+                    {x.isPrivateCar ? `${x.carType} (פרטי)` : x.carType}
+                  </Text>
+                  <Text> {x.address}</Text>
+                  <Text>{x.time}</Text>
+                </View>
+              </View> */}
               <List.Item
                 title=""
                 titleStyle={styles.z}
@@ -215,7 +244,12 @@ export default function MainEventMap() {
                   </View>
                 }
                 left={(props) => (
-                  <List.Icon {...props} icon={x.icon} style={styles.icon} />
+                  <List.Icon
+                    {...props}
+                    icon={x.icon}
+                    style={styles.icon}
+                    color="#336CA0"
+                  />
                 )}
                 right={(_props) => <Text style={styles.right}>{x.time}</Text>}
                 style={styles.x}
@@ -245,7 +279,9 @@ const styles = StyleSheet.create({
     height: 99,
     borderRadius: 12,
     marginVertical: 5,
+    // width: 400,
     marginHorizontal: 5,
+    // flexDirection: "row",
   },
   title: {
     color: "black",
@@ -266,6 +302,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     width: 20,
+    color: "blue",
   },
   z: {
     width: 0,

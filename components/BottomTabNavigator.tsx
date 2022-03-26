@@ -31,13 +31,16 @@ function BottomTabNavigator() {
       initialRouteName="TabOne"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
+        headerTitleStyle: {
+          color: "white",
+        },
       }}
     >
       <BottomTab.Screen
         name="TabOne"
         component={TabOneScreen}
         options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
-          title: "Tab One",
+          title: "אירועים פתוחים",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerBackground: () => (
             <LinearGradient color1="#0F425F" color2="#0F93DB" />
