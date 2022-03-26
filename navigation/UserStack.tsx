@@ -1,19 +1,19 @@
-import BottomTabNavigator from "../components/BottomTabNavigator";
-import NotFoundScreen from "../screens/NotFoundScreen";
-import ModalScreen from "../screens/ModalScreen";
-import { Button } from "react-native-paper";
-import Colors from "../constants/Colors";
-import { MaterialIcons } from "@expo/vector-icons";
+import BottomTabNavigator from "../components/BottomTabNavigator"
+import NotFoundScreen from "../screens/NotFoundScreen"
+import EventDetails from "../screens/EventDetails"
+import { Button } from "react-native-paper"
+import Colors from "../constants/Colors"
+import { MaterialIcons } from "@expo/vector-icons"
 
-import { RootStackParamList } from "../types";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import AuthStack from "./AuthStack";
-import useColorScheme from "../hooks/useColorScheme";
+import { RootStackParamList } from "../types"
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import AuthStack from "./AuthStack"
+import useColorScheme from "../hooks/useColorScheme"
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator<RootStackParamList>()
 
 function UserStack() {
-  const colorScheme = useColorScheme();
+  const colorScheme = useColorScheme()
 
   return (
     <Stack.Navigator>
@@ -34,7 +34,7 @@ function UserStack() {
         component={NotFoundScreen}
         options={{ title: "Oops!" }}
       />
-      <Stack.Group screenOptions={{ presentation: "modal" }}>
+      {/* <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen
           name="Modal"
           component={ModalScreen}
@@ -57,9 +57,9 @@ function UserStack() {
             headerLeft: null,
           })}
         />
-      </Stack.Group>
+      </Stack.Group> */}
     </Stack.Navigator>
-  );
+  )
 }
 
-export default UserStack;
+export default UserStack

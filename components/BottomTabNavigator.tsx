@@ -78,7 +78,7 @@ function BottomTabNavigator() {
         options={{
           title: "אירועים שלי",
           ...commonOptions,
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          // tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerTitleStyle: {
             color: "white",
           },

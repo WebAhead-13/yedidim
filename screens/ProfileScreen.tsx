@@ -48,12 +48,13 @@ export default function ProfileScreen({ navigation }: any) {
           </View>
           <View>
             <List.Section>
-              {Accordion.map((element) => {
+              {Accordion.map((element, i) => {
                 return (
                   <List.Accordion
                     titleStyle={styles.titleStyle}
                     style={styles.listAccordion}
                     title={element.title}
+                    key={i}
                   >
                     {element.childs.map((child) => {
                       return <List.Item key={child.name} title={child.name} />
