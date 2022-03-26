@@ -1,10 +1,8 @@
 import { StyleSheet, Image } from "react-native"
 import { Dimensions } from "react-native"
-import EditScreenInfo from "../components/EditScreenInfo"
 import { Text, View } from "../components/Themed"
-import { MyModal } from "../components/EndEventModal"
 
-export default function EventsPage() {
+export default function EventPage() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>שם משתמש</Text>
@@ -91,7 +89,6 @@ export default function EventsPage() {
           </View>
         </View>
       </View>
-      {/* <MyModal /> */}
     </View>
   )
 }

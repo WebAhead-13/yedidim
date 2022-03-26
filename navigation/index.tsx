@@ -1,15 +1,9 @@
-import {
-  NavigationContainer,
-  DefaultTheme,
-  DarkTheme,
-} from "@react-navigation/native"
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native"
 import * as React from "react"
-import { ColorSchemeName } from "react-native"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import AuthStack from "./AuthStack"
 import LinkingConfiguration from "./LinkingConfiguration"
 import UserStack from "./UserStack"
-import AuthScreen from "./AuthScreen"
 
 export default function Navigation() {
   return (

@@ -1,13 +1,8 @@
-import { BottomNavigation, Button } from "react-native-paper"
-import { requireNativeComponent, View } from "react-native"
-
-import { Text, Pressable } from "react-native"
-import TabOneScreen from "../screens/TabOneScreen"
-import TabTwoScreen from "../screens/TabTwoScreen"
-import EventsPageScreen from "../screens/EventsPage"
+import * as React from "react"
+import { Pressable } from "react-native"
+import TakenEvents from "../screens/TakenEvents"
 import ProfileScreen from "../screens/ProfileScreen"
 import useColorScheme from "../hooks/useColorScheme"
-import * as React from "react"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { RootTabParamList, RootTabScreenProps } from "../types"
 import { FontAwesome } from "@expo/vector-icons"
@@ -23,25 +18,27 @@ function TabBarIcon(props: {
   return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />
 }
 
+const commonOptions = {
+  headerBackground: () => <LinearGradient color1="#0F425F" color2="#0F93DB" />,
+}
+
 function BottomTabNavigator() {
   const colorScheme = useColorScheme()
 
   return (
     <BottomTab.Navigator
-      initialRouteName="ProfileScreen"
+      initialRouteName="MainEventsPage"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}
     >
       <BottomTab.Screen
-        name="TabOne"
-        component={TabOneScreen}
-        options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
-          title: "Tab One",
+        name="MainEventsPage"
+        component={EventsPage}
+        options={({ navigation }: RootTabScreenProps<"MainEventsPage">) => ({
+          title: "אירועים",
+          ...commonOptions,
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerBackground: () => (
-            <LinearGradient color1="#0F425F" color2="#0F93DB" />
-          ),
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate("Modal")}
@@ -52,7 +49,6 @@ function BottomTabNavigator() {
               <FontAwesome
                 name="info-circle"
                 size={25}
-                color={Colors[colorScheme].text}
                 style={{ marginRight: 15 }}
               />
             </Pressable>
@@ -60,25 +56,27 @@ function BottomTabNavigator() {
         })}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoScreen}
+        name="TakenEvents"
+        component={TakenEvents}
         options={{
           title: "אירועים (נלקחו)",
+          headerTitleStyle: {
+            color: "white",
+          },
+          ...commonOptions,
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="TabThree"
-        component={EventsPageScreen}
+        name="EventPageScreen"
+        component={ProfileScreen}
         options={{
           title: "אירועים שלי",
+          ...commonOptions,
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerTitleStyle: {
             color: "white",
           },
-          headerBackground: () => (
-            <LinearGradient color1="#0F425F" color2="#0F93DB" />
-          ),
         }}
       />
       <BottomTab.Screen
@@ -86,13 +84,11 @@ function BottomTabNavigator() {
         component={ProfileScreen}
         options={{
           title: "פרופיל משתמש",
+          ...commonOptions,
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerTitleStyle: {
             color: "white",
           },
-          headerBackground: () => (
-            <LinearGradient color1="#0F425F" color2="#0F93DB" />
-          ),
         }}
       />
     </BottomTab.Navigator>
